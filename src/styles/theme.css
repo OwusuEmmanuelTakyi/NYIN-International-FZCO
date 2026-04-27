@@ -1,0 +1,107 @@
+/* =========================================================================
+   NYIN International — Theme Tokens
+   Two modes: dark (default) and light (subtle/neutral grey).
+   The gold accent is preserved across both modes as the brand through-line.
+   ========================================================================= */
+
+/* ---------- DARK MODE (default) ---------- */
+:root,
+[data-theme="dark"] {
+  /* Surfaces */
+  --color-bg: #0B0B0B;
+  --color-bg-alt: #1A1A1A;
+  --color-bg-card: #1A1A1A;
+  --color-bg-elevated: #0B0B0B;
+
+  /* Borders */
+  --color-border: #2A2A2A;
+  --color-border-strong: #2A2A2A;
+
+  /* Text */
+  --color-text: #FFFFFF;
+  --color-text-muted: #B5B5B5;
+  --color-text-on-accent: #0B0B0B;
+
+  /* Brand gold (consistent across modes) */
+  --color-accent: #C9A646;
+  --color-accent-hover: #E5C76B;
+  --color-accent-soft: rgba(201, 166, 70, 0.10);
+  --color-accent-softer: rgba(201, 166, 70, 0.06);
+  --color-accent-strong: rgba(201, 166, 70, 0.30);
+  --color-accent-medium: rgba(201, 166, 70, 0.40);
+  --color-accent-line: rgba(201, 166, 70, 0.15);
+
+  /* Shadows & overlays */
+  --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-elev: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-cta: 0 8px 30px rgba(201, 166, 70, 0.30);
+
+  /* Hero gradient */
+  --gradient-hero: linear-gradient(180deg, #0B0B0B 0%, #1A1A1A 60%, #0B0B0B 100%);
+  --gradient-section: linear-gradient(180deg, #0B0B0B 0%, #1A1A1A 100%);
+  --gradient-card-tinted: linear-gradient(135deg, #1A1A1A 0%, rgba(201, 166, 70, 0.06) 100%);
+
+  /* Translucent navbar background (for blur effect) */
+  --nav-bg: rgba(11, 11, 11, 0.95);
+}
+
+/* ---------- LIGHT MODE (subtle / neutral grey) ---------- */
+[data-theme="light"] {
+  /* Surfaces — soft neutral greys, not stark white */
+  --color-bg: #F4F4F2;          /* page background */
+  --color-bg-alt: #EBEBE8;      /* alternating section */
+  --color-bg-card: #FFFFFF;     /* cards on top of bg */
+  --color-bg-elevated: #FFFFFF; /* elevated surfaces */
+
+  /* Borders */
+  --color-border: #DCDCD8;
+  --color-border-strong: #C8C8C2;
+
+  /* Text */
+  --color-text: #1A1A1A;
+  --color-text-muted: #5A5A55;
+  --color-text-on-accent: #FFFFFF;
+
+  /* Brand gold (slightly deeper for contrast on light bg) */
+  --color-accent: #B8902F;
+  --color-accent-hover: #D4A744;
+  --color-accent-soft: rgba(184, 144, 47, 0.10);
+  --color-accent-softer: rgba(184, 144, 47, 0.06);
+  --color-accent-strong: rgba(184, 144, 47, 0.30);
+  --color-accent-medium: rgba(184, 144, 47, 0.40);
+  --color-accent-line: rgba(184, 144, 47, 0.20);
+
+  /* Shadows & overlays */
+  --shadow-card: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --shadow-elev: 0 14px 40px rgba(0, 0, 0, 0.12);
+  --shadow-cta: 0 8px 24px rgba(184, 144, 47, 0.28);
+
+  /* Hero gradient — light cream tones */
+  --gradient-hero: linear-gradient(180deg, #F4F4F2 0%, #EBEBE8 60%, #F4F4F2 100%);
+  --gradient-section: linear-gradient(180deg, #F4F4F2 0%, #EBEBE8 100%);
+  --gradient-card-tinted: linear-gradient(135deg, #FFFFFF 0%, rgba(184, 144, 47, 0.07) 100%);
+
+  /* Translucent navbar background (for blur effect) */
+  --nav-bg: rgba(244, 244, 242, 0.95);
+}
+
+/* Smooth transitions when switching themes */
+html {
+  transition: background-color 0.3s ease;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply transitions to common surfaces so the swap feels intentional */
+section,
+nav,
+button,
+a,
+div[style*="background"],
+div[style*="border"] {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
