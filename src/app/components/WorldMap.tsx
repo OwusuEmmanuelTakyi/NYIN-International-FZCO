@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MapPin, Mail, Phone, X, Clock } from "lucide-react";
-import { WORLD_PATHS } from "../components/WorldMapData";
+import { WORLD_PATHS } from "../components/worldMapData";
 
 // Color palette
 // Primary Black: var(--color-bg)
