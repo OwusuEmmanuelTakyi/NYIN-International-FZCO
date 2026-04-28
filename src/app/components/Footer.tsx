@@ -75,34 +75,11 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6 max-w-md"
               style={{ color: "var(--color-text-muted)" }}
             >
-              Africa's gateway to gold capital and commerce. We provide integrated solutions across the gold value chain — bullion trading, streaming and royalties, and strategic mining advisory.
+              Africa's gateway to gold capital. We provide integrated solutions across the gold value chain — bullion trading, streaming and royalties, and strategic mining advisory services.
             </p>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-2">
-              {[
-                { icon: Shield, label: "OECD Compliant" },
-                { icon: Award, label: "LBMA Aligned" },
-                { icon: Globe, label: "ESG Certified" },
-              ].map((badge, idx) => {
-                const Icon = badge.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] tracking-[0.15em] uppercase"
-                    style={{
-                      backgroundColor: "var(--color-bg-alt)",
-                      border: "1px solid var(--color-border)",
-                      color: "var(--color-text-muted)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    <Icon size={11} style={{ color: "var(--color-accent)" }} />
-                    {badge.label}
-                  </div>
-                );
-              })}
-            </div>
+            
           </div>
 
           {/* Services links */}
@@ -117,8 +94,8 @@ export default function Footer() {
               {[
                 { label: "Streaming & Royalties", path: "/streaming" },
                 { label: "Trading & Execution", path: "/trading" },
-                { label: "Mining Advisory", path: "/mining" },
-                { label: "Bullion Brokerage", path: "/streaming#brokerage-trading" },
+                { label: "Mining Advisory & Capital Solutions", path: "/mining" },
+                
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link
@@ -156,7 +133,7 @@ export default function Footer() {
                 { label: "About Us", path: "/about" },
                 { label: "Leadership", path: "/leadership" },
                 { label: "Mission & Values", path: "/about#mission-vision-values" },
-                { label: "Contact", path: "/contact" },
+                { label: "Contact Us", path: "/contact" },
               ].map((link, idx) => (
                 <li key={idx}>
                   <Link

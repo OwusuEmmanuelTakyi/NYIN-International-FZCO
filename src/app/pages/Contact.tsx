@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Send, Clock } from "lucide-react";
 import { useState } from "react";
 import WorldMap from "../components/WorldMap";
 import HeroVideo from "../components/HeroVideo";
@@ -27,32 +27,12 @@ export default function Contact() {
     setFormData({ name: "", email: "", company: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const offices = [
-    {
-      city: "Dubai, UAE",
-      address: ["DMCC Free Zone", "Jumeirah Lakes Towers", "Dubai, United Arab Emirates"],
-      phone: "+971 XXX XXXX",
-      email: "dubai@nyininternational.com",
-    },
-    {
-      city: "Accra, Ghana",
-      address: ["Airport Residential Area", "Accra, Ghana"],
-      phone: "+233 XXX XXXX",
-      email: "accra@nyininternational.com",
-    },
-    {
-      city: "Hong Kong",
-      address: ["Central District", "Hong Kong SAR"],
-      phone: "+852 XXXX XXXX",
-      email: "hongkong@nyininternational.com",
-    },
-  ];
-
-  // Reusable input style
   const inputStyle: React.CSSProperties = {
     backgroundColor: "var(--color-bg)",
     border: "1px solid var(--color-border)",
@@ -60,18 +40,27 @@ export default function Contact() {
     color: "var(--color-text)",
   };
 
-  const handleInputFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputFocus = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.currentTarget.style.borderColor = "var(--color-accent)";
     e.currentTarget.style.boxShadow = "0 0 0 1px var(--color-accent-line)";
   };
 
-  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     e.currentTarget.style.borderColor = "var(--color-border)";
     e.currentTarget.style.boxShadow = "none";
   };
 
   return (
-    <div style={{ backgroundColor: "var(--color-bg)", color: "var(--color-text)" }}>
+    <div
+      style={{
+        backgroundColor: "var(--color-bg)",
+        color: "var(--color-text)",
+      }}
+    >
       {/* ============ HERO with VIDEO ============ */}
       <HeroVideo
         sources={[
@@ -93,7 +82,6 @@ export default function Contact() {
               backgroundColor: "rgba(11, 11, 11, 0.4)",
             }}
           >
-            Get in Touch
           </div>
           <h1
             className="mb-6 text-4xl md:text-5xl lg:text-6xl font-light leading-tight"
@@ -107,7 +95,7 @@ export default function Contact() {
           <div
             className="w-16 h-px mx-auto mb-6"
             style={{ backgroundColor: "var(--color-accent)" }}
-          ></div>
+          />
           <p
             className="text-lg leading-relaxed"
             style={{
@@ -115,36 +103,53 @@ export default function Contact() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            Get in touch with our team to discuss trading opportunities, financing solutions, or advisory services
+            Trading opportunities, financing solutions, advisory services — our
+            team is ready when you are.
           </p>
         </div>
       </HeroVideo>
 
-      {/* Form + Offices */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
-            <div>
-              <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Send a Message
-              </div>
-              <h2 className="mb-2 text-3xl md:text-4xl font-light" style={{ color: "var(--color-text)" }}>
-                Let's Connect
-              </h2>
-              <div
-                className="w-12 h-px mb-8"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
+      {/* ============ COMPACT FORM ============ */}
+      <section className="py-20" style={{ backgroundColor: "var(--color-bg)" }}>
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <div
+              className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+              style={{ color: "var(--color-accent)" }}
+            >
+              Send a Message
+            </div>
+            <h2
+              className="mb-3 text-2xl md:text-3xl font-light"
+              style={{ color: "var(--color-text)" }}
+            >
+              Let's Connect
+            </h2>
+            <div
+              className="w-12 h-px mx-auto mb-4"
+              style={{ backgroundColor: "var(--color-accent)" }}
+            />
+            <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+              Fill out the form below and our team will be in touch within 24
+              hours.
+            </p>
+          </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+          <div
+            className="p-6 md:p-8"
+            style={{
+              backgroundColor: "var(--color-bg-alt)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "4px",
+            }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Name + Email side by side on desktop */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block mb-2 text-sm tracking-wide"
+                    className="block mb-2 text-xs tracking-wide uppercase"
                     style={{ color: "var(--color-text-muted)" }}
                   >
                     Name <span style={{ color: "var(--color-accent)" }}>*</span>
@@ -158,7 +163,7 @@ export default function Contact() {
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
                     required
-                    className="w-full px-4 py-3 outline-none transition-all"
+                    className="w-full px-3 py-2.5 outline-none transition-all text-sm"
                     style={inputStyle}
                   />
                 </div>
@@ -166,7 +171,7 @@ export default function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm tracking-wide"
+                    className="block mb-2 text-xs tracking-wide uppercase"
                     style={{ color: "var(--color-text-muted)" }}
                   >
                     Email <span style={{ color: "var(--color-accent)" }}>*</span>
@@ -180,207 +185,233 @@ export default function Contact() {
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
                     required
-                    className="w-full px-4 py-3 outline-none transition-all"
+                    className="w-full px-3 py-2.5 outline-none transition-all text-sm"
                     style={inputStyle}
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block mb-2 text-sm tracking-wide"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    Company
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    onFocus={handleInputFocus}
-                    onBlur={handleInputBlur}
-                    className="w-full px-4 py-3 outline-none transition-all"
-                    style={inputStyle}
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block mb-2 text-sm tracking-wide"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    Message <span style={{ color: "var(--color-accent)" }}>*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    onFocus={handleInputFocus}
-                    onBlur={handleInputBlur}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 outline-none transition-all resize-none"
-                    style={inputStyle}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full px-8 py-4 flex items-center justify-center gap-2 transition-all duration-300 tracking-[0.2em] uppercase text-sm font-medium"
-                  style={{
-                    backgroundColor: "var(--color-accent)",
-                    color: "var(--color-bg)",
-                    borderRadius: "4px",
-                    border: "1px solid var(--color-accent)",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = "var(--color-accent-hover)";
-                    e.currentTarget.style.borderColor = "var(--color-accent-hover)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = "var(--color-accent)";
-                    e.currentTarget.style.borderColor = "var(--color-accent)";
-                  }}
+              <div>
+                <label
+                  htmlFor="company"
+                  className="block mb-2 text-xs tracking-wide uppercase"
+                  style={{ color: "var(--color-text-muted)" }}
                 >
-                  Send Message
-                  <Send size={16} />
-                </button>
-              </form>
-            </div>
-
-            {/* Offices */}
-            <div>
-              <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Our Locations
-              </div>
-              <h2 className="mb-2 text-3xl md:text-4xl font-light" style={{ color: "var(--color-text)" }}>
-                Global Offices
-              </h2>
-              <div
-                className="w-12 h-px mb-8"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
-
-              <div className="space-y-5">
-                {offices.map((office, idx) => (
-                  <div
-                    key={idx}
-                    className="p-6 transition-all duration-300"
-                    style={{
-                      backgroundColor: "var(--color-bg-alt)",
-                      border: "1px solid var(--color-border)",
-                      borderRadius: "4px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-accent)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-border)";
-                    }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div
-                        className="w-12 h-12 flex items-center justify-center shrink-0"
-                        style={{
-                          backgroundColor: "var(--color-accent-soft)",
-                          border: "1px solid var(--color-accent-strong)",
-                          borderRadius: "4px",
-                        }}
-                      >
-                        <MapPin style={{ color: "var(--color-accent)" }} size={22} />
-                      </div>
-                      <div className="flex-1">
-                        <h3
-                          className="mb-1 text-lg tracking-wide"
-                          style={{ color: "var(--color-text)" }}
-                        >
-                          {office.city}
-                        </h3>
-                        <div
-                          className="w-8 h-px mb-3"
-                          style={{ backgroundColor: "var(--color-accent-medium)" }}
-                        ></div>
-                        <p
-                          className="text-sm mb-4 leading-relaxed"
-                          style={{ color: "var(--color-text-muted)" }}
-                        >
-                          {office.address.map((line, i) => (
-                            <span key={i}>
-                              {line}
-                              {i < office.address.length - 1 && <br />}
-                            </span>
-                          ))}
-                        </p>
-                        <div className="space-y-2 text-sm">
-                          <div className="flex items-center gap-2">
-                            <Phone size={14} style={{ color: "var(--color-accent)" }} />
-                            <span style={{ color: "var(--color-text-muted)" }}>{office.phone}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Mail size={14} style={{ color: "var(--color-accent)" }} />
-                            <span style={{ color: "var(--color-text-muted)" }}>{office.email}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                  Company
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                  className="w-full px-3 py-2.5 outline-none transition-all text-sm"
+                  style={inputStyle}
+                />
               </div>
 
-              {/* General Inquiries */}
-              <div
-                className="mt-6 p-6 transition-all duration-300"
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block mb-2 text-xs tracking-wide uppercase"
+                  style={{ color: "var(--color-text-muted)" }}
+                >
+                  Message <span style={{ color: "var(--color-accent)" }}>*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  onFocus={handleInputFocus}
+                  onBlur={handleInputBlur}
+                  required
+                  rows={4}
+                  className="w-full px-3 py-2.5 outline-none transition-all resize-none text-sm"
+                  style={inputStyle}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full px-6 py-3 flex items-center justify-center gap-2 transition-all duration-300 tracking-[0.2em] uppercase text-xs font-medium"
                 style={{
-                  backgroundColor: "var(--color-bg-alt)",
-                  border: "1px solid var(--color-accent)",
+                  backgroundColor: "var(--color-accent)",
+                  color: "var(--color-text-on-accent)",
                   borderRadius: "4px",
-                  background:
-                    "linear-gradient(135deg, var(--color-bg-alt) 0%, rgba(201, 166, 70, 0.05) 100%)",
+                  border: "1px solid var(--color-accent)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor =
+                    "var(--color-accent-hover)";
+                  e.currentTarget.style.borderColor =
+                    "var(--color-accent-hover)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--color-accent)";
+                  e.currentTarget.style.borderColor = "var(--color-accent)";
                 }}
               >
-                <div
-                  className="text-xs tracking-[0.3em] uppercase mb-2"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  Always Available
-                </div>
-                <h3
-                  className="mb-3 text-lg tracking-wide"
-                  style={{ color: "var(--color-text)" }}
-                >
-                  General Inquiries
-                </h3>
-                <div
-                  className="w-8 h-px mb-4"
-                  style={{ backgroundColor: "var(--color-accent-medium)" }}
-                ></div>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Mail size={14} style={{ color: "var(--color-accent)" }} />
-                    <span style={{ color: "var(--color-text-muted)" }}>info@nyininternational.com</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone size={14} style={{ color: "var(--color-accent)" }} />
-                    <span style={{ color: "var(--color-text-muted)" }}>
-                      +971 XXX XXXX{" "}
-                      <span style={{ color: "var(--color-accent)" }}>(24/7 Trading Desk)</span>
-                    </span>
-                  </div>
-                </div>
+                Send Message
+                <Send size={14} />
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ BIG INTERACTIVE WORLD MAP ============ */}
+      <section
+        className="py-20"
+        style={{
+          backgroundColor: "var(--color-bg-alt)",
+          borderTop: "1px solid var(--color-border)",
+          borderBottom: "1px solid var(--color-border)",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            
+            <h2
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl font-light leading-tight"
+              style={{ color: "var(--color-text)" }}
+            >
+              Our Global {" "}
+              <span style={{ color: "var(--color-accent)" }}>
+                Offices.
+              </span>
+            </h2>
+            <div
+              className="w-16 h-px mx-auto mb-6"
+              style={{ backgroundColor: "var(--color-accent)" }}
+            />
+            <p
+              className="leading-relaxed"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              Headquartered in Dubai, with strategic hubs in Accra and Hong
+              Kong. Click any pin on the map to view that office's full contact
+              details.
+            </p>
+          </div>
+
+          {/* The big interactive map (embedded — no extra section header from the map itself) */}
+          <WorldMap embedded />
+        </div>
+      </section>
+
+      {/* ============ GENERAL INQUIRIES (under the map) ============ */}
+      <section className="py-20" style={{ backgroundColor: "var(--color-bg)" }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            
+            <h2
+              className="mb-3 text-2xl md:text-3xl font-light"
+              style={{ color: "var(--color-text)" }}
+            >
+              General{" "}
+              <span style={{ color: "var(--color-accent)" }}>Inquiries</span>
+            </h2>
+            <div
+              className="w-12 h-px mx-auto mb-4"
+              style={{ backgroundColor: "var(--color-accent)" }}
+            />
+            <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+              For general questions or our 24/7 trading desk
+            </p>
+          </div>
+
+          <div
+            className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-6"
+            style={{
+              backgroundColor: "var(--color-bg-alt)",
+              border: "1px solid var(--color-accent)",
+              borderRadius: "4px",
+              background:
+                "linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-accent-softer) 100%)",
+            }}
+          >
+            {/* Email */}
+            <a
+              href="mailto:info@nyininternational.com"
+              className="flex flex-col items-center text-center transition-all"
+              style={{ color: "var(--color-text)" }}
+            >
+              <div
+                className="w-12 h-12 flex items-center justify-center mb-3"
+                style={{
+                  backgroundColor: "var(--color-accent-soft)",
+                  border: "1px solid var(--color-accent-strong)",
+                  borderRadius: "4px",
+                }}
+              >
+                <Mail size={18} style={{ color: "var(--color-accent)" }} />
+              </div>
+              <div
+                className="text-[10px] tracking-[0.3em] uppercase mb-1"
+                style={{ color: "var(--color-accent)" }}
+              >
+                Email
+              </div>
+              <div className="text-sm" style={{ color: "var(--color-text)" }}>
+                info@nyininternational.com
+              </div>
+            </a>
+
+            {/* Phone */}
+            <a
+              href="tel:+971000000000"
+              className="flex flex-col items-center text-center transition-all"
+              style={{ color: "var(--color-text)" }}
+            >
+              <div
+                className="w-12 h-12 flex items-center justify-center mb-3"
+                style={{
+                  backgroundColor: "var(--color-accent-soft)",
+                  border: "1px solid var(--color-accent-strong)",
+                  borderRadius: "4px",
+                }}
+              >
+                <Phone size={18} style={{ color: "var(--color-accent)" }} />
+              </div>
+              <div
+                className="text-[10px] tracking-[0.3em] uppercase mb-1"
+                style={{ color: "var(--color-accent)" }}
+              >
+                Phone
+              </div>
+              <div className="text-sm" style={{ color: "var(--color-text)" }}>
+                +971 XXX XXXX
+              </div>
+            </a>
+
+            {/* 24/7 Trading desk */}
+            <div className="flex flex-col items-center text-center">
+              <div
+                className="w-12 h-12 flex items-center justify-center mb-3"
+                style={{
+                  backgroundColor: "var(--color-accent-soft)",
+                  border: "1px solid var(--color-accent-strong)",
+                  borderRadius: "4px",
+                }}
+              >
+                <Clock size={18} style={{ color: "var(--color-accent)" }} />
+              </div>
+              <div
+                className="text-[10px] tracking-[0.3em] uppercase mb-1"
+                style={{ color: "var(--color-accent)" }}
+              >
+                Trading Desk
+              </div>
+              <div className="text-sm" style={{ color: "var(--color-text)" }}>
+                24 / 7 Coverage
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <WorldMap />
     </div>
   );
 }

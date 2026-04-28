@@ -16,10 +16,10 @@ import { Link } from "react-router";
 import HeroVideo from "../components/HeroVideo";
 
 // Leadership portraits — local images
-import leader1 from "../../images/1.jpeg";
-import leader2 from "../../images/2.jpeg";
+import leader1 from "../../images/1.png";
+import leader2 from "../../images/2.png";
 import leader3 from "../../images/3.jpeg";
-import leader4 from "../../images/4.jpeg";
+import leader4 from "../../images/4.png";
 
 // Color palette
 // Primary Black: var(--color-bg)
@@ -112,17 +112,19 @@ export default function About() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            NYIN International FZCO operates at the heart of the global gold industry. Our headquarters are in Dubai, with strategic hubs in Ghana and Hong Kong, giving us direct access to the world's most vital gold markets.
+            At NYIN International FZCO, we operate at the heart of the global gold industry. Headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, we maintain direct access to the world’s most influential gold markets.
           </p>
           <p
-            className="leading-relaxed"
+            className="text-lg mb-6 leading-relaxed"
             style={{
-              color: "#E5E5E5",
+              color: "#FFFFFF",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            We offer a comprehensive range of gold-focused services, including physical and financial gold trading, mining support via gold streaming and royalties, and bespoke advisory services that connect gold mine owners seeking exits with capital-ready investors.
+           
+            We provide a full spectrum of gold-focused services, including physical and financial gold trading, mining support through gold streaming and royalties, and tailored advisory solutions. Our expertise uniquely positions us to connect gold mine owners seeking successful exits with capital-ready investors.
           </p>
+          
         </div>
       </HeroVideo>
 
@@ -173,13 +175,13 @@ export default function About() {
                   className="text-3xl font-light mb-1"
                   style={{ color: "var(--color-accent)" }}
                 >
-                  3 Hubs
+                 
                 </div>
                 <div
                   className="text-xs tracking-[0.2em] uppercase"
                   style={{ color: "var(--color-text-muted)" }}
                 >
-                  Dubai · Ghana · Hong Kong
+                 
                 </div>
               </div>
             </div>
@@ -189,20 +191,20 @@ export default function About() {
                 className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
                 style={{ color: "var(--color-accent)" }}
               >
-                End-to-End Solutions
+                
               </div>
               <h2
                 className="mb-4 text-3xl md:text-4xl font-light leading-tight"
                 style={{ color: "var(--color-text)" }}
               >
-                Overseeing every phase of the gold value chain
+                End-to-End Solutions
               </h2>
               <div
                 className="w-12 h-px mb-6"
                 style={{ backgroundColor: "var(--color-accent)" }}
               ></div>
               <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Our mission is to oversee every phase of the gold value chain, providing an end-to-end solution tailored to our clients' needs. Whether you are a first-time buyer looking for entry-level guidance or a seasoned gold trader or mining professional, we take the time to understand your goals and demonstrate how NYIN International FZCO can help you achieve them.
+                We oversee every phase of the gold value chain and deliver end-to-end solutions tailored to our clients' unique needs. Whether you're a first-time buyer seeking entry-level guidance or an experienced gold trader or mining professional, we take the time to understand your goals and show you exactly how NYIN International FZCO can help you achieve them.
               </p>
 
               <div className="space-y-3">
@@ -293,7 +295,7 @@ export default function About() {
                 style={{ backgroundColor: "var(--color-accent-medium)" }}
               ></div>
               <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">
-                To unlock the full potential of African gold by providing an integrated platform that combines transparent bullion trading, flexible non-dilutive financing through streaming and royalties, and strategic advisory services — ensuring that miners, investors, and communities prosper together.
+                To provide an integrated platform combining transparent bullion trading, non-dilutive financing via streaming and royalties, and strategic advisory services — ensuring miners, investors, and communities prosper together.
               </p>
             </div>
 
@@ -328,14 +330,14 @@ export default function About() {
                 Vision
               </div>
               <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Africa's Trusted Gateway for Gold
+                Africa's Trusted Gateway for Gold Capital
               </h3>
               <div
                 className="w-12 h-px mb-6"
                 style={{ backgroundColor: "var(--color-accent-medium)" }}
               ></div>
               <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">
-                To become Africa's most trusted gateway for gold capital and commerce, recognized for driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.
+                To be Africa’s most trusted gateway for gold capital — driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.
               </p>
             </div>
           </div>
@@ -373,38 +375,21 @@ export default function About() {
                 num: "01",
                 icon: Shield,
                 title: "Integrity",
-                desc: "We operate with uncompromising honesty in every transaction — from off-take agreements and streaming contracts to advisory mandates. Transparency, regulatory compliance, and conflict-free gold are non-negotiable.",
+                desc: "We operate with uncompromising honesty in every transaction — from off-take agreements to advisory mandates. Transparency, regulatory compliance, and conflict-free gold are non-negotiable.",
               },
               {
                 num: "02",
                 icon: Handshake,
                 title: "Partnership",
-                desc: "We succeed only when our clients succeed. Whether trading bullion, structuring a gold stream, or advising on an exit, we align our interests with those of miners, concessionaires, and investors alike.",
+                desc: "We succeed only when our clients succeed. Whether trading bullion, structuring a gold stream, or advising on an exit, our interests are fully aligned with those of miners, concessionaires, and investors.",
               },
               {
                 num: "03",
                 icon: Globe,
                 title: "Local Expertise, Global Reach",
-                desc: "We combine deep on-the-ground presence in African gold hubs with international logistics, refining, and capital networks — bridging local producers to world markets seamlessly.",
+                desc: "We bridge African gold producers to world markets seamlessly — combining on-the-ground presence in key African hubs with international logistics, refining, and capital networks.",
               },
-              {
-                num: "04",
-                icon: Lightbulb,
-                title: "Innovation",
-                desc: "We challenge traditional mining finance by offering streaming and royalty solutions that replace restrictive debt, while our upstream trading and advisory open new pathways for institutional capital.",
-              },
-              {
-                num: "05",
-                icon: Award,
-                title: "Responsibility",
-                desc: "Committed to environmental and social governance (ESG). We finance only licensed, responsible miners, advise on sustainable practices, and ensure host communities share in the value created.",
-              },
-              {
-                num: "06",
-                icon: Layers,
-                title: "End-to-End Accountability",
-                desc: "From due diligence and capital raising to logistics and final sale, we take ownership of every step — delivering certainty, security, and peace of mind to our partners.",
-              },
+              
             ].map((value, idx) => {
               const Icon = value.icon;
               return (
@@ -482,9 +467,7 @@ export default function About() {
               className="w-16 h-px mx-auto mb-6"
               style={{ backgroundColor: "var(--color-accent)" }}
             ></div>
-            <p className="max-w-2xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
-              Experienced professionals with deep expertise in gold markets, mining finance, and African operations
-            </p>
+            
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -591,55 +574,7 @@ export default function About() {
       </section>
 
       {/* ============ STATS ============ */}
-      <section
-        className="py-20"
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-accent-line)",
-          borderBottom: "1px solid var(--color-accent-line)",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { value: "3", label: "Global Offices", icon: Building2 },
-              { value: "$50M+", label: "Assets Under Management", icon: Award },
-              { value: "10+", label: "Active Mining Partners", icon: Users },
-            ].map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div key={idx} className="text-center">
-                  <div
-                    className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
-                    style={{
-                      backgroundColor: "var(--color-accent-soft)",
-                      border: "1px solid var(--color-accent-strong)",
-                    }}
-                  >
-                    <Icon style={{ color: "var(--color-accent)" }} size={20} />
-                  </div>
-                  <div
-                    className="text-5xl md:text-6xl mb-3 font-light"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="w-12 h-px mx-auto mb-3"
-                    style={{ backgroundColor: "var(--color-accent-medium)" }}
-                  ></div>
-                  <p
-                    className="text-sm tracking-wider uppercase"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }

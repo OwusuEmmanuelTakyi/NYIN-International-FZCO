@@ -61,8 +61,8 @@ export default function Streaming() {
               textShadow: "0 4px 30px rgba(0,0,0,0.5)",
             }}
           >
-            Streaming, Royalties &{" "}
-            <span style={{ color: "var(--color-accent)" }}>Bullion Trading</span>
+            Streaming{" "}
+            <span style={{ color: "var(--color-accent)" }}>& Royalties</span>
           </h1>
           <div
             className="w-16 h-px mb-8"
