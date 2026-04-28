@@ -51,6 +51,7 @@ const navLinks: NavLink[] = [
   { path: "/trading", label: "Trading & Execution" },
   { path: "/mining", label: "Mining Advisory & Capital Solutions" },
   { path: "/contact", label: "Contact Us" },
+  //{ path: "/blog", label: "Blog" },
 ];
 
 // =================== LIVE PRICE TICKER ===================

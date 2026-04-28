@@ -75,7 +75,7 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6 max-w-md"
               style={{ color: "var(--color-text-muted)" }}
             >
-              Africa's gateway to gold capital. We provide integrated solutions across the gold value chain — bullion trading, streaming and royalties, and strategic mining advisory services.
+              Africa's gateway to precious metals capital. We provide integrated solutions across the gold value chain — bullion trading, streaming and royalties, and strategic mining advisory services.
             </p>
 
             {/* Trust badges */}

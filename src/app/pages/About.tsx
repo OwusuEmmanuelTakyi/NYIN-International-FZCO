@@ -18,7 +18,7 @@ import HeroVideo from "../components/HeroVideo";
 // Leadership portraits — local images
 import leader1 from "../../images/1.png";
 import leader2 from "../../images/2.png";
-import leader3 from "../../images/4.png";
+import leader3 from "../../images/3.png";
 import leader4 from "../../images/4.png";
 
 // Color palette
@@ -50,7 +50,7 @@ const leaders = [
   },
   {
     slug: "terrence",
-    name: "Terrence",
+    name: "Terrence Ofoe",
     role: "Chief Financial Officer",
     summary:
       "Career spanning Databank Group, First Atlantic Bank, and Equipall Ghana — combining financial governance, AML compliance, and mining-sector finance.",
@@ -112,7 +112,7 @@ export default function About() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            At NYIN International FZCO, we operate at the heart of the global gold industry. Headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, we maintain direct access to the world’s most influential gold markets.
+            At NYIN International FZCO, we operate at the heart of the global precious metals industry. Headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, we maintain direct access to the world’s most influential precious metals markets.
           </p>
           <p
             className="text-lg mb-6 leading-relaxed"
@@ -122,7 +122,7 @@ export default function About() {
             }}
           >
            
-            We provide a full spectrum of gold-focused services, including physical and financial gold trading, mining support through gold streaming and royalties, and tailored advisory solutions. Our expertise uniquely positions us to connect gold mine owners seeking successful exits with capital-ready investors.
+            We provide a full spectrum of services, including physical and financial trading of gold and other precious metals, mining support through streaming and royalties, and tailored advisory solutions. Our expertise uniquely positions us to connect asset owners seeking successful exits with capital-ready investors.
           </p>
           
         </div>
@@ -149,7 +149,7 @@ export default function About() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1200&q=80"
+                  src="https://i.pinimg.com/736x/be/fd/dd/befddd6f1a22fc176dd3060309240a2d.jpg"
                   alt="Dubai skyline"
                   className="w-full h-[480px] object-cover"
                   style={{ filter: "brightness(0.7) contrast(1.05) saturate(1.05)" }}
@@ -204,12 +204,12 @@ export default function About() {
                 style={{ backgroundColor: "var(--color-accent)" }}
               ></div>
               <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                We oversee every phase of the gold value chain and deliver end-to-end solutions tailored to our clients' unique needs. Whether you're a first-time buyer seeking entry-level guidance or an experienced gold trader or mining professional, we take the time to understand your goals and show you exactly how NYIN International FZCO can help you achieve them.
+                We oversee every phase of the precious metals value chain and deliver end-to-end solutions tailored to our clients' unique needs. Whether you're a first-time buyer seeking entry-level guidance or an experienced precious metals trader or mining professional, we take the time to understand your goals and show you exactly how NYIN International FZCO can help you achieve them.
               </p>
 
               <div className="space-y-3">
                 {[
-                  "Physical and financial gold trading",
+                  "Physical and financial trading of gold and other precious metals",
                   "Mining support via streaming and royalties",
                   "Bespoke advisory and exit services",
                 ].map((item, idx) => (
@@ -288,7 +288,7 @@ export default function About() {
                 Mission
               </div>
               <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Unlocking Africa's Gold Potential
+                Unlocking Africa's Precious Metals Potential
               </h3>
               <div
                 className="w-12 h-px mb-6"
@@ -330,14 +330,14 @@ export default function About() {
                 Vision
               </div>
               <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Africa's Trusted Gateway for Gold Capital
+                Africa's Trusted Gateway for Precious Metals Capital
               </h3>
               <div
                 className="w-12 h-px mb-6"
                 style={{ backgroundColor: "var(--color-accent-medium)" }}
               ></div>
               <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">
-                To be Africa’s most trusted gateway for gold capital — driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.
+                To be Africa’s most trusted gateway for precious metals capital — driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.
               </p>
             </div>
           </div>
@@ -381,7 +381,7 @@ export default function About() {
                 num: "02",
                 icon: Handshake,
                 title: "Partnership",
-                desc: "We succeed only when our clients succeed. Whether trading bullion, structuring a gold stream, or advising on an exit, our interests are fully aligned with those of miners, concessionaires, and investors.",
+                desc: "We succeed only when our clients succeed. Whether trading bullion, structuring a stream, or advising on an exit, our interests are fully aligned with those of miners, concessionaires, and investors.",
               },
               {
                 num: "03",
