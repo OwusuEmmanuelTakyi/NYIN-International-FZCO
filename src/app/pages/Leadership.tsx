@@ -17,7 +17,7 @@ import HeroVideo from "../components/HeroVideo";
 // Leadership portraits — local images
 import leader1 from "../../images/1.png";
 import leader2 from "../../images/2.png";
-import leader3 from "../../images/3.jpeg";
+import leader3 from "../../images/4.png";
 import leader4 from "../../images/4.png";
 
 // Color palette

@@ -106,7 +106,7 @@ export default function Home() {
               }}
             >
               Africa's Gateway to{" "}
-              <span style={{ color: "var(--color-accent)" }}>Gold Capital</span> & Commerce
+              <span style={{ color: "var(--color-accent)" }}>Mining Capital</span> & Gold Trading
             </h1>
 
             <div
@@ -121,7 +121,7 @@ export default function Home() {
                 textShadow: "0 2px 20px rgba(0,0,0,0.4)",
               }}
             >
-              An integrated platform for bullion trading, streaming and royalties, and mining advisory — connecting African production to global markets.
+              An integrated platform for bullion trading, streaming and royalties, and mining advisory services — connecting African production to global markets.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -224,7 +224,7 @@ export default function Home() {
                 NYIN International FZCO is headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, giving us direct access to the world's most vital gold markets.
               </p>
               <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                We oversee every phase of the gold value chain — from mine financing through streaming and royalties, to bullion trading and execution, and strategic advisory for mine owners and capital-ready investors.
+                We oversee every phase of the gold value chain — from mine financing via streaming and royalties to bullion trading,  as well as strategic advisory for mine owners and capital-ready investors.
               </p>
               <Link
                 to="/about"
@@ -380,7 +380,7 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=1200&q=80"
+                  src="https://i.pinimg.com/736x/34/e8/e4/34e8e4b30f79ee2f8859e446021a4a4c.jpg"
                   alt="Gold mining operations"
                   className="w-full h-[420px] object-cover"
                   style={{ filter: "brightness(0.72) contrast(1.05)" }}
@@ -427,7 +427,7 @@ export default function Home() {
                 icon: Coins,
                 title: "Mine Financing",
                 subtitle: "Streaming & Royalties",
-                desc: "Non-dilutive capital deployment to licensed African miners.",
+                desc: "Non-dilutive capital deployment to miners.",
               },
               {
                 num: "02",
@@ -517,45 +517,14 @@ export default function Home() {
       </section>
 
       {/* ============ SUSTAINABLE MINING + GLOBAL PRESENCE (with image) ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="py-20" style={{ backgroundColor: "var(--color-bg-alt)" }}>
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-2 gap-12 items-center">
             {/* Left — Sustainable Mining with image */}
             <div>
-              <div className="relative mb-8">
-                <div
-                  className="absolute -inset-2"
-                  style={{
-                    border: "1px solid var(--color-accent-medium)",
-                    borderRadius: "4px",
-                    pointerEvents: "none",
-                  }}
-                ></div>
-                <div
-                  className="relative overflow-hidden"
-                  style={{
-                    borderRadius: "4px",
-                    border: "1px solid var(--color-border)",
-                  }}
-                >
-                  <img
-                    src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1200&q=80"
-                    alt="Sustainable practices and community"
-                    className="w-full h-[280px] object-cover"
-                    style={{ filter: "brightness(0.7) contrast(1.05)" }}
-                  />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(11,11,11,0.4) 0%, transparent 50%, var(--color-accent-line) 100%)",
-                    }}
-                  ></div>
-                </div>
-              </div>
-
+              
               <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+                className="inline-block mb-4 text-xs tracking-[0.3em] uppercase"
                 style={{ color: "var(--color-accent)" }}
               >
                 Our Commitment
@@ -580,12 +549,12 @@ export default function Home() {
                   {
                     icon: Leaf,
                     title: "Environmental Stewardship",
-                    desc: "Supporting responsible mining practices and rehabilitation.",
+                    desc: "Supporting responsible mining practices.",
                   },
                   {
                     icon: Shield,
                     title: "Compliance & Transparency",
-                    desc: "Full AML/KYC adherence and OECD-aligned ethical sourcing.",
+                    desc: "Full AML/KYC adherence and ethical sourcing.",
                   },
                   {
                     icon: Users,
@@ -661,7 +630,6 @@ export default function Home() {
                 style={{ backgroundColor: "var(--color-accent-medium)" }}
               ></div>
               <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Three strategic hubs giving us "follow-the-sun" coverage across the world's most vital gold markets.
               </p>
 
               <div className="space-y-3">
@@ -727,56 +695,7 @@ export default function Home() {
       </section>
 
       {/* ============ STATS BAND ============ */}
-      <section
-        className="py-20"
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-accent-line)",
-          borderBottom: "1px solid var(--color-accent-line)",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "$200M+", label: "Transaction Value", icon: Award },
-              { value: "3", label: "Global Hubs", icon: Building2 },
-              { value: "8", label: "African Countries", icon: Globe },
-              { value: "100%", label: "Conflict-Free Gold", icon: Shield },
-            ].map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div key={idx} className="text-center">
-                  <div
-                    className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-full"
-                    style={{
-                      backgroundColor: "var(--color-accent-soft)",
-                      border: "1px solid var(--color-accent-strong)",
-                    }}
-                  >
-                    <Icon style={{ color: "var(--color-accent)" }} size={18} />
-                  </div>
-                  <div
-                    className="text-4xl md:text-5xl mb-2 font-light"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="w-8 h-px mx-auto mb-3"
-                    style={{ backgroundColor: "var(--color-accent-medium)" }}
-                  ></div>
-                  <p
-                    className="text-xs tracking-[0.15em] uppercase"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      
 
       {/* ============ FINAL CTA ============ */}
       <section

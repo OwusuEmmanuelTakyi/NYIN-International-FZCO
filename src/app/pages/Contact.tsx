@@ -72,17 +72,7 @@ export default function Contact() {
         minHeight="50vh"
       >
         <div className="max-w-3xl mx-auto text-center">
-          <div
-            className="inline-block mb-6 px-4 py-1.5 text-xs tracking-[0.2em] uppercase"
-            style={{
-              color: "var(--color-accent)",
-              border: "1px solid var(--color-accent-strong)",
-              borderRadius: "2px",
-              backdropFilter: "blur(8px)",
-              backgroundColor: "rgba(11, 11, 11, 0.4)",
-            }}
-          >
-          </div>
+          
           <h1
             className="mb-6 text-4xl md:text-5xl lg:text-6xl font-light leading-tight"
             style={{
@@ -306,7 +296,11 @@ export default function Contact() {
       <section className="py-20" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            
+            <div
+              className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+              style={{ color: "var(--color-accent)" }}
+            >
+            </div>
             <h2
               className="mb-3 text-2xl md:text-3xl font-light"
               style={{ color: "var(--color-text)" }}

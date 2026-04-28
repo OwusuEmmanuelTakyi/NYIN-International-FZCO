@@ -258,7 +258,7 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Get in touch CTA */}
+            {/* Get in touch CTA 
             <Link
               to="/contact"
               className="mt-6 inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase transition-all"
@@ -272,12 +272,13 @@ export default function Footer() {
             >
               Schedule a Consultation
               <ArrowRight size={12} />
-            </Link>
+            </Link>  
+            */}
           </div>
         </div>
       </div>
 
-      {/* ============ CONNECT WITH US — SOCIAL FEATURE BAND ============ */}
+      {/* ============ CONNECT WITH US — SOCIAL FEATURE BAND ============ 
       <div
         className="relative"
         style={{
@@ -315,7 +316,7 @@ export default function Footer() {
               style={{ backgroundColor: "var(--color-accent)" }}
             ></div>
 
-            {/* Larger, more prominent social icons */}
+            {/* Larger, more prominent social icons *
             <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
               {SOCIALS.map(({ Icon, label, href }, idx) => (
                 <a
@@ -360,7 +361,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
+      */}
 
       {/* ============ COPYRIGHT BAR ============ */}
       <div
