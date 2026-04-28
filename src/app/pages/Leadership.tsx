@@ -312,7 +312,7 @@ export default function Leadership() {
                 {/* Bio Content */}
                 <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                   <div
-                    className="inline-flex items-center gap-2 mb-4 text-xs tracking-[0.3em] uppercase"
+                    className="inline-flex  items-center gap-2 mb-4 text-xs tracking-[0.3em] uppercase"
                     style={{ color: "var(--color-accent)" }}
                   >
                     <Icon size={14} />
@@ -330,16 +330,16 @@ export default function Leadership() {
                   ></div>
 
                   <div className="space-y-5">
-                    {leader.bio.map((para, pIdx) => (
-                      <p
-                        key={pIdx}
-                        className="leading-relaxed"
-                        style={{ color: "var(--color-text-muted)" }}
-                      >
-                        {para}
-                      </p>
-                    ))}
-                  </div>
+  {leader.bio.map((para, pIdx) => (
+    <p
+      key={pIdx}
+      className="leading-relaxed text-justify"
+      style={{ color: "var(--color-text-muted)" }}
+    >
+      {para}
+    </p>
+  ))}
+</div>
 
                   {/* Selorm's responsibilities (only him) */}
                   {leader.slug === "selorm-afudego" && (

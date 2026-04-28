@@ -211,6 +211,31 @@ export default function Footer() {
             {/* Direct contact */}
             <div className="space-y-3">
               <a
+                href="tel:+971000000000"
+                className="flex items-center gap-3 text-sm transition-all"
+                style={{ color: "var(--color-text-muted)" }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.color = "var(--color-accent)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.color = "var(--color-text-muted)")
+                }
+              >
+                <div
+                  className="w-8 h-8 flex items-center justify-center shrink-0"
+                  style={{
+                    backgroundColor: "var(--color-accent-soft)",
+                    border: "1px solid var(--color-accent-strong)",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Phone size={12} style={{ color: "var(--color-accent)" }} />
+                </div>
+                +971 55 356 7545 /
+                +233 54 447 9798 /
+                +852 95 401 093
+              </a>
+              <a
                 href="mailto:info@nyininternational.com"
                 className="flex items-center gap-3 text-sm transition-all"
                 style={{ color: "var(--color-text-muted)" }}
@@ -233,29 +258,7 @@ export default function Footer() {
                 </div>
                 info@nyininternational.com
               </a>
-              <a
-                href="tel:+971000000000"
-                className="flex items-center gap-3 text-sm transition-all"
-                style={{ color: "var(--color-text-muted)" }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.color = "var(--color-accent)")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.color = "var(--color-text-muted)")
-                }
-              >
-                <div
-                  className="w-8 h-8 flex items-center justify-center shrink-0"
-                  style={{
-                    backgroundColor: "var(--color-accent-soft)",
-                    border: "1px solid var(--color-accent-strong)",
-                    borderRadius: "4px",
-                  }}
-                >
-                  <Phone size={12} style={{ color: "var(--color-accent)" }} />
-                </div>
-                +971 XXX XXXX
-              </a>
+              
             </div>
 
             {/* Get in touch CTA 

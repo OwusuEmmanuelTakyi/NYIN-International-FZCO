@@ -99,7 +99,7 @@ export default function About() {
             }}
           >
             At the heart of the{" "}
-            <span style={{ color: "var(--color-accent)" }}>global gold industry</span>.
+            <span style={{ color: "var(--color-accent)" }}>global precious metals industry</span>.
           </h1>
           <div
             className="w-16 h-px mb-8"
@@ -387,7 +387,7 @@ export default function About() {
                 num: "03",
                 icon: Globe,
                 title: "Local Expertise, Global Reach",
-                desc: "We bridge African gold producers to world markets seamlessly — combining on-the-ground presence in key African hubs with international logistics, refining, and capital networks.",
+                desc: "We bridge African producers to world markets seamlessly — combining on-the-ground presence in key African hubs with international logistics, refining, and capital networks.",
               },
               
             ].map((value, idx) => {

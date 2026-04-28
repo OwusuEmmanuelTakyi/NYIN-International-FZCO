@@ -78,9 +78,9 @@ export default function Mining() {
             At NYIN International FZCO, we go beyond trading and off-take. Through our advisory arm, we help concession holders and mine owners navigate complex ownership transitions, while connecting capital-ready investors with high-quality gold assets across Africa.
           </p>
           <p
-            className="leading-relaxed"
+            className="text-lg mb-6 leading-relaxed"
             style={{
-              color: "#E5E5E5",
+              color: "#FFFFFF",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
@@ -110,9 +110,9 @@ export default function Mining() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1200&q=80"
+                  src="https://i.pinimg.com/1200x/0a/dc/b4/0adcb4229dc0aa0788ab952420adf90b.jpg"
                   alt="Advisory and capital solutions"
-                  className="w-full h-[480px] object-cover"
+                  className="w-full h-[300px] object-cover"
                   style={{ filter: "brightness(0.72) contrast(1.05)" }}
                 />
                 <div
@@ -132,18 +132,7 @@ export default function Mining() {
                   boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
                 }}
               >
-                <div
-                  className="text-3xl font-light mb-1"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                  $200M+
-                </div>
-                <div
-                  className="text-xs tracking-[0.2em] uppercase"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
-                  Transaction Value Advised
-                </div>
+                
               </div>
             </div>
 
@@ -167,42 +156,6 @@ export default function Mining() {
               <p className="mb-5 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
                 Our deep understanding of both African mining operations and international capital markets allows us to structure transactions that work for all parties.
               </p>
-              <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                We've advised on transactions ranging from{" "}
-                <span style={{ color: "var(--color-accent)" }}>$5M working capital raises</span> to{" "}
-                <span style={{ color: "var(--color-accent)" }}>$50M+ asset sales</span>, always with discretion, rigor, and a long-term view.
-              </p>
-
-              <div className="grid grid-cols-3 gap-4 mt-10">
-                {[
-                  { value: "$200M+", label: "Advised" },
-                  { value: "15+", label: "Transactions" },
-                  { value: "8", label: "Countries" },
-                ].map((stat, idx) => (
-                  <div
-                    key={idx}
-                    className="text-center p-4"
-                    style={{
-                      backgroundColor: "var(--color-bg-alt)",
-                      border: "1px solid var(--color-border)",
-                      borderRadius: "4px",
-                    }}
-                  >
-                    <div
-                      className="text-2xl font-light mb-1"
-                      style={{ color: "var(--color-accent)" }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div
-                      className="text-xs tracking-[0.15em] uppercase"
-                      style={{ color: "var(--color-text-muted)" }}
-                    >
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -627,7 +580,7 @@ export default function Mining() {
         </div>
       </section>
 
-      {/* ============ CREDIBILITY BAND ============ */}
+      {/* ============ CREDIBILITY BAND ============ 
       <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -709,7 +662,7 @@ export default function Mining() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ============ FINAL CTA ============ */}
       <section

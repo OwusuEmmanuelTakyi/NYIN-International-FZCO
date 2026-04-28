@@ -277,14 +277,7 @@ export default function Contact() {
               className="w-16 h-px mx-auto mb-6"
               style={{ backgroundColor: "var(--color-accent)" }}
             />
-            <p
-              className="leading-relaxed"
-              style={{ color: "var(--color-text-muted)" }}
-            >
-              Headquartered in Dubai, with strategic hubs in Accra and Hong
-              Kong. Click any pin on the map to view that office's full contact
-              details.
-            </p>
+            
           </div>
 
           {/* The big interactive map (embedded — no extra section header from the map itself) */}
@@ -293,119 +286,7 @@ export default function Contact() {
       </section>
 
       {/* ============ GENERAL INQUIRIES (under the map) ============ */}
-      <section className="py-20" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <div
-              className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-              style={{ color: "var(--color-accent)" }}
-            >
-            </div>
-            <h2
-              className="mb-3 text-2xl md:text-3xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
-              General{" "}
-              <span style={{ color: "var(--color-accent)" }}>Inquiries</span>
-            </h2>
-            <div
-              className="w-12 h-px mx-auto mb-4"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            />
-            <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-              For general questions or our 24/7 trading desk
-            </p>
-          </div>
-
-          <div
-            className="p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-6"
-            style={{
-              backgroundColor: "var(--color-bg-alt)",
-              border: "1px solid var(--color-accent)",
-              borderRadius: "4px",
-              background:
-                "linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-accent-softer) 100%)",
-            }}
-          >
-            {/* Email */}
-            <a
-              href="mailto:info@nyininternational.com"
-              className="flex flex-col items-center text-center transition-all"
-              style={{ color: "var(--color-text)" }}
-            >
-              <div
-                className="w-12 h-12 flex items-center justify-center mb-3"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Mail size={18} style={{ color: "var(--color-accent)" }} />
-              </div>
-              <div
-                className="text-[10px] tracking-[0.3em] uppercase mb-1"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Email
-              </div>
-              <div className="text-sm" style={{ color: "var(--color-text)" }}>
-                info@nyininternational.com
-              </div>
-            </a>
-
-            {/* Phone */}
-            <a
-              href="tel:+971000000000"
-              className="flex flex-col items-center text-center transition-all"
-              style={{ color: "var(--color-text)" }}
-            >
-              <div
-                className="w-12 h-12 flex items-center justify-center mb-3"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Phone size={18} style={{ color: "var(--color-accent)" }} />
-              </div>
-              <div
-                className="text-[10px] tracking-[0.3em] uppercase mb-1"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Phone
-              </div>
-              <div className="text-sm" style={{ color: "var(--color-text)" }}>
-                +971 XXX XXXX
-              </div>
-            </a>
-
-            {/* 24/7 Trading desk */}
-            <div className="flex flex-col items-center text-center">
-              <div
-                className="w-12 h-12 flex items-center justify-center mb-3"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Clock size={18} style={{ color: "var(--color-accent)" }} />
-              </div>
-              <div
-                className="text-[10px] tracking-[0.3em] uppercase mb-1"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Trading Desk
-              </div>
-              <div className="text-sm" style={{ color: "var(--color-text)" }}>
-                24 / 7 Coverage
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </div>
   );
 }

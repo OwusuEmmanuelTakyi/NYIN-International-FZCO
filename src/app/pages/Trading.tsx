@@ -80,12 +80,12 @@ export default function Trading() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            Comprehensive gold trading services connecting licensed miners, refineries, dealers, and institutional investors across the global precious metals market.
+            Comprehensive gold and other precious metals trading services connecting licensed miners, refineries, dealers, and institutional investors.
           </p>
           <p
-            className="leading-relaxed"
+            className="text-lg mb-6 leading-relaxed"
             style={{
-              color: "#E5E5E5",
+              color: "#FFFFFF",
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
@@ -170,7 +170,7 @@ export default function Trading() {
                 style={{ backgroundColor: "var(--color-accent)" }}
               ></div>
               <p className="mb-5 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Our unique upstream approach sets us apart. With local teams positioned near major production belts, we maintain direct relationships with mines and processing facilities. This allows NYIN to offer{" "}
+                Our unique upstream approach sets us apart. With local teams positioned near major production belts, we maintain direct relationships with mines, aggregators and processing facilities. This allows NYIN to offer{" "}
                 <span style={{ color: "var(--color-accent)" }}>exclusive pricing advantages</span> to our customers.
               </p>
               <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
@@ -188,7 +188,7 @@ export default function Trading() {
                   {
                     icon: Network,
                     title: "Direct Relationships",
-                    desc: "Long-standing partnerships with licensed mines and processing facilities.",
+                    desc: "Long-standing partnerships with licensed mines, aggregators and processing facilities.",
                   },
                   {
                     icon: TrendingUp,
@@ -242,314 +242,247 @@ export default function Trading() {
 
       {/* ============ HEDGING & RISK MANAGEMENT ============ */}
       <section className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Intro — centered */}
+    <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
+      <div
+        className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+        style={{ color: "var(--color-accent)" }}
+      >
+        Protect Your Position
+      </div>
+      <h2
+        className="mb-4 text-3xl md:text-4xl font-light"
+        style={{ color: "var(--color-text)" }}
+      >
+        Hedging & Risk Management
+      </h2>
+      <div
+        className="w-16 h-px mb-6"
+        style={{ backgroundColor: "var(--color-accent)" }}
+      />
+      <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+        We offer hedging and risk management services to help clients manage price exposure on their physical gold holdings,{" "}
+        <span style={{ color: "var(--color-accent)" }}>protecting margins and preserving profits</span>. These services benefit both physical users of gold — such as jewelers and industrial producers — as well as investors.
+      </p>
+    </div>
+
+    {/* Two beneficiary cards */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-8">
+      {[
+        {
+          icon: Gem,
+          label: "Physical Users",
+          title: "Jewelers & Industrial Producers",
+          desc: "Lock in gold input costs to protect production margins from price volatility.",
+        },
+        {
+          icon: Briefcase,
+          label: "Investors",
+          title: "Funds & Institutional Holders",
+          desc: "Preserve profits on physical gold holdings with structured hedging programs.",
+        },
+      ].map((item, idx) => {
+        const Icon = item.icon;
+        return (
+          <div
+            key={idx}
+            className="p-8 transition-all duration-300"
+            style={{
+              backgroundColor: "var(--color-bg)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "4px",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--color-accent)")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--color-border)")}
+          >
             <div
-              className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+              className="w-12 h-12 flex items-center justify-center mb-5"
+              style={{
+                backgroundColor: "var(--color-accent-soft)",
+                border: "1px solid var(--color-accent-strong)",
+                borderRadius: "4px",
+              }}
+            >
+              <Icon style={{ color: "var(--color-accent)" }} size={22} />
+            </div>
+            <div
+              className="text-xs tracking-[0.3em] uppercase mb-2"
               style={{ color: "var(--color-accent)" }}
             >
-              Protect Your Position
+              {item.label}
             </div>
-            <h2
-              className="mb-4 text-3xl md:text-4xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
-              Hedging & Risk Management
-            </h2>
+            <h3 className="mb-3 text-xl font-light" style={{ color: "var(--color-text)" }}>
+              {item.title}
+            </h3>
             <div
-              className="w-16 h-px mx-auto mb-6"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            ></div>
-            <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-              We offer hedging and risk management services to help clients manage price exposure on their physical gold holdings,{" "}
-              <span style={{ color: "var(--color-accent)" }}>protecting margins and preserving profits</span>. These services benefit both physical users of gold — such as jewelers and industrial producers — as well as investors.
+              className="w-8 h-px mb-4"
+              style={{ backgroundColor: "var(--color-accent-medium)" }}
+            />
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              {item.desc}
             </p>
           </div>
+        );
+      })}
+    </div>
 
-          {/* Two beneficiary cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+    {/* Hedging instruments */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-5xl mx-auto">
+      {[
+        {
+          icon: BarChart3,
+          title: "Forward Contracts",
+          desc: "Lock in future delivery prices",
+        },
+        {
+          icon: FileCheck,
+          title: "Custom Structures",
+          desc: "Tailored to specific production profiles",
+        },
+      ].map((item, idx) => {
+        const Icon = item.icon;
+        return (
+          <div
+            key={idx}
+            className="p-5 text-center transition-all duration-300"
+            style={{
+              backgroundColor: "var(--color-bg)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "4px",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "var(--color-accent)";
+              e.currentTarget.style.transform = "translateY(-3px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "var(--color-border)";
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
             <div
-              className="p-8 transition-all duration-300"
+              className="w-11 h-11 mx-auto mb-3 flex items-center justify-center"
               style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
+                backgroundColor: "var(--color-accent-soft)",
+                border: "1px solid var(--color-accent-strong)",
                 borderRadius: "4px",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
             >
-              <div
-                className="w-12 h-12 flex items-center justify-center mb-5"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Gem style={{ color: "var(--color-accent)" }} size={22} />
-              </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Physical Users
-              </div>
-              <h3 className="mb-3 text-xl font-light" style={{ color: "var(--color-text)" }}>
-                Jewelers & Industrial Producers
-              </h3>
-              <div
-                className="w-8 h-px mb-4"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Lock in gold input costs to protect production margins from price volatility.
-              </p>
+              <Icon style={{ color: "var(--color-accent)" }} size={20} />
             </div>
-
             <div
-              className="p-8 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
+              className="mb-2 text-sm tracking-wide"
+              style={{ color: "var(--color-accent)" }}
             >
-              <div
-                className="w-12 h-12 flex items-center justify-center mb-5"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Briefcase style={{ color: "var(--color-accent)" }} size={22} />
-              </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Investors
-              </div>
-              <h3 className="mb-3 text-xl font-light" style={{ color: "var(--color-text)" }}>
-                Funds & Institutional Holders
-              </h3>
-              <div
-                className="w-8 h-px mb-4"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Preserve profits on physical gold holdings with structured hedging programs.
-              </p>
+              {item.title}
             </div>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              {item.desc}
+            </p>
           </div>
+        );
+      })}
+    </div>
 
-          {/* Hedging instruments */}
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                {
-                  icon: BarChart3,
-                  title: "Forward Contracts",
-                  desc: "Lock in future delivery prices",
-                },
-                {
-                  icon: Activity,
-                  title: "Options Strategies",
-                  desc: "Downside protection with upside participation",
-                },
-                {
-                  icon: ShieldCheck,
-                  title: "Collar Programs",
-                  desc: "Defined price ranges for budget certainty",
-                },
-                {
-                  icon: FileCheck,
-                  title: "Custom Structures",
-                  desc: "Tailored to specific production profiles",
-                },
-              ].map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-5 text-center transition-all duration-300"
-                    style={{
-                      backgroundColor: "var(--color-bg)",
-                      border: "1px solid var(--color-border)",
-                      borderRadius: "4px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-accent)";
-                      e.currentTarget.style.transform = "translateY(-3px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-border)";
-                      e.currentTarget.style.transform = "translateY(0)";
-                    }}
-                  >
-                    <div
-                      className="w-11 h-11 mx-auto mb-3 flex items-center justify-center"
-                      style={{
-                        backgroundColor: "var(--color-accent-soft)",
-                        border: "1px solid var(--color-accent-strong)",
-                        borderRadius: "4px",
-                      }}
-                    >
-                      <Icon style={{ color: "var(--color-accent)" }} size={20} />
-                    </div>
-                    <div
-                      className="mb-2 text-sm tracking-wide"
-                      style={{ color: "var(--color-accent)" }}
-                    >
-                      {item.title}
-                    </div>
-                    <p className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+  </div>
+</section>
 
       {/* ============ LOGISTICS COORDINATION — split with image ============ */}
       <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                End-to-End Movement
-              </div>
-              <h2
-                className="mb-4 text-3xl md:text-4xl font-light"
-                style={{ color: "var(--color-text)" }}
-              >
-                Logistics Coordination
-              </h2>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
-              <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Our trusted logistics partners manage every stage of physical gold movement. We minimize delays and counterparty risk, ensuring{" "}
-                <span style={{ color: "var(--color-accent)" }}>safe, reliable delivery</span>.
-              </p>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
-              {/* Logistics steps as a vertical list */}
-              <div className="space-y-3">
-                {[
-                  {
-                    icon: Lock,
-                    title: "Secure Collection",
-                    desc: "Direct from mine or aggregation sites with armored transport.",
-                  },
-                  {
-                    icon: FileCheck,
-                    title: "Customs & Export Compliance",
-                    desc: "Full documentation across African jurisdictions.",
-                  },
-                  {
-                    icon: ShieldCheck,
-                    title: "Comprehensive Insurance",
-                    desc: "Coverage for theft, loss, and damage at every stage.",
-                  },
-                  {
-                    icon: Plane,
-                    title: "Air Freight Coordination",
-                    desc: "Real-time tracking from origin to destination.",
-                  },
-                ].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="flex gap-4 p-4 transition-all duration-300"
-                      style={{
-                        backgroundColor: "var(--color-bg-alt)",
-                        border: "1px solid var(--color-border)",
-                        borderRadius: "4px",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-accent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-border)";
-                      }}
-                    >
-                      <div
-                        className="shrink-0 w-10 h-10 flex items-center justify-center"
-                        style={{
-                          backgroundColor: "var(--color-accent-soft)",
-                          border: "1px solid var(--color-accent-strong)",
-                          borderRadius: "4px",
-                        }}
-                      >
-                        <Icon style={{ color: "var(--color-accent)" }} size={18} />
-                      </div>
-                      <div>
-                        <h4 className="mb-0.5 text-sm" style={{ color: "var(--color-text)" }}>
-                          {item.title}
-                        </h4>
-                        <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+    {/* Intro — centered */}
+    <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
+      <div
+        className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+        style={{ color: "var(--color-accent)" }}
+      >
+        End-to-End Movement
+      </div>
+      <h2
+        className="mb-4 text-3xl md:text-4xl font-light"
+        style={{ color: "var(--color-text)" }}
+      >
+        Logistics Coordination
+      </h2>
+      <div
+        className="w-12 h-px mb-6"
+        style={{ backgroundColor: "var(--color-accent)" }}
+      />
+      <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+        Our trusted logistics partners manage every stage of physical gold
+        movement. We minimize delays and counterparty risk, ensuring{" "}
+        <span style={{ color: "var(--color-accent)" }}>safe, reliable delivery</span>.
+      </p>
+    </div>
+
+    {/* 4-column step cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {[
+        {
+          icon: Lock,
+          title: "Secure Collection",
+          desc: "Direct from mine or aggregation sites.",
+        },
+        {
+          icon: FileCheck,
+          title: "Customs & Export Compliance",
+          desc: "Full documentation across jurisdictions.",
+        },
+        {
+          icon: ShieldCheck,
+          title: "Comprehensive Insurance",
+          desc: "Coverage for theft, loss, and damage at every stage.",
+        },
+        {
+          icon: Plane,
+          title: "Air Freight Coordination",
+          desc: "Real-time tracking from origin to destination.",
+        },
+      ].map((item, idx) => {
+        const Icon = item.icon;
+        return (
+          <div
+            key={idx}
+            className="flex flex-col gap-4 p-5 transition-all duration-300"
+            style={{
+              backgroundColor: "var(--color-bg-alt)",
+              border: "1px solid var(--color-border)",
+              borderRadius: "4px",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.borderColor = "var(--color-accent)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.borderColor = "var(--color-border)")
+            }
+          >
+            <div
+              className="w-10 h-10 flex items-center justify-center shrink-0"
+              style={{
+                backgroundColor: "var(--color-accent-soft)",
+                border: "1px solid var(--color-accent-strong)",
+                borderRadius: "4px",
+              }}
+            >
+              <Icon style={{ color: "var(--color-accent)" }} size={18} />
             </div>
-
-            {/* Image */}
-            <div className="relative">
-              <div
-                className="absolute -inset-2"
-                style={{
-                  border: "1px solid var(--color-accent-medium)",
-                  borderRadius: "4px",
-                  pointerEvents: "none",
-                }}
-              ></div>
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  borderRadius: "4px",
-                  border: "1px solid var(--color-border)",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1200&q=80"
-                  alt="Secure cargo transport and logistics"
-                  className="w-full h-[520px] object-cover"
-                  style={{ filter: "brightness(0.7) contrast(1.05)" }}
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(11,11,11,0.5) 0%, transparent 50%, var(--color-accent-line) 100%)",
-                  }}
-                ></div>
-              </div>
+            <div>
+              <h4 className="mb-1 text-sm font-medium" style={{ color: "var(--color-text)" }}>
+                {item.title}
+              </h4>
+              <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+                {item.desc}
+              </p>
             </div>
           </div>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
 
       {/* ============ ONWARD SALE ============ */}
       <section className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
@@ -622,7 +555,7 @@ export default function Trading() {
                 style={{ backgroundColor: "var(--color-accent-medium)" }}
               ></div>
               <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Often via long-term offtake agreements with LBMA-accredited and tier-1 facilities.
+                Often via offtake with tier-1 facilities.
               </p>
             </div>
 
@@ -773,374 +706,6 @@ export default function Trading() {
         </div>
       </section>
 
-      {/* ============ DIVIDER / TRANSITION TO BROKERAGE ============ */}
-      <section
-        className="py-32 relative overflow-hidden"
-        style={{
-          backgroundColor: "var(--color-bg)",
-          borderTop: "1px solid var(--color-accent-line)",
-          borderBottom: "1px solid var(--color-accent-line)",
-        }}
-      >
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, var(--color-accent) 0%, transparent 70%)",
-          }}
-        ></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Brokerage & Trading
-              </div>
-              <h2
-                className="mb-6 text-3xl md:text-5xl font-light leading-tight"
-                style={{ color: "var(--color-text)" }}
-              >
-                The vital link between{" "}
-                <span style={{ color: "var(--color-accent)" }}>African gold producers</span>{" "}
-                and international markets.
-              </h2>
-              <div
-                className="w-16 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
-              <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                NYIN International FZCO specializes in the physical trading and off-take of gold bullion from licensed miners and authorized aggregators across Africa, offering a transparent, fully compliant pathway from mine to refinery.
-              </p>
-            </div>
-
-            <div className="relative">
-              <div
-                className="absolute -inset-2"
-                style={{
-                  border: "1px solid var(--color-accent-medium)",
-                  borderRadius: "4px",
-                  pointerEvents: "none",
-                }}
-              ></div>
-              <div
-                className="relative overflow-hidden"
-                style={{
-                  borderRadius: "4px",
-                  border: "1px solid var(--color-border)",
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1610375461246-83df859d849d?w=1200&q=80"
-                  alt="Gold bullion bars"
-                  className="w-full h-[420px] object-cover"
-                  style={{ filter: "brightness(0.85) contrast(1.05) saturate(1.1)" }}
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(11,11,11,0.3) 0%, transparent 50%, var(--color-accent-line) 100%)",
-                  }}
-                ></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ GOLD OFF-TAKE IN AFRICA ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-5">
-              <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Sourcing
-              </div>
-              <h2
-                className="mb-4 text-3xl md:text-4xl font-light"
-                style={{ color: "var(--color-text)" }}
-              >
-                Gold Off-Take in Africa
-              </h2>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
-              <p className="mb-6 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                We purchase gold directly from verified sources, including licensed small-scale and large-scale miners as well as authorized local aggregators.
-              </p>
-              <p className="mb-6 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Our due diligence process verifies origin, quality, and compliance with{" "}
-                <span style={{ color: "var(--color-accent)" }}>OECD guidelines</span> and local regulations. We trade exclusively in conflict-free gold.
-              </p>
-            </div>
-
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {[
-                  {
-                    icon: Award,
-                    title: "Licensed Miners",
-                    desc: "Both small-scale and large-scale licensed gold miners across Ghana and the wider African region.",
-                  },
-                  {
-                    icon: Building2,
-                    title: "Authorized Aggregators",
-                    desc: "Verified local aggregators operating under government-issued licenses and regulatory oversight.",
-                  },
-                  {
-                    icon: CheckCircle,
-                    title: "OECD-Compliant",
-                    desc: "Strict adherence to OECD Due Diligence Guidance and conflict-free sourcing standards.",
-                  },
-                  {
-                    icon: Shield,
-                    title: "Origin Verification",
-                    desc: "Complete chain-of-custody documentation from mine to refinery for every transaction.",
-                  },
-                ].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="p-6 transition-all duration-300 h-full"
-                      style={{
-                        backgroundColor: "var(--color-bg-alt)",
-                        border: "1px solid var(--color-border)",
-                        borderRadius: "4px",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-accent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-border)";
-                      }}
-                    >
-                      <div
-                        className="w-11 h-11 flex items-center justify-center mb-4"
-                        style={{
-                          backgroundColor: "var(--color-accent-soft)",
-                          border: "1px solid var(--color-accent-strong)",
-                          borderRadius: "4px",
-                        }}
-                      >
-                        <Icon style={{ color: "var(--color-accent)" }} size={20} />
-                      </div>
-                      <h4
-                        className="mb-2 text-base"
-                        style={{ color: "var(--color-text)" }}
-                      >
-                        {item.title}
-                      </h4>
-                      <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                        {item.desc}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ BULLION TRADING ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <div
-              className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-              style={{ color: "var(--color-accent)" }}
-            >
-              Distribution
-            </div>
-            <h2
-              className="mb-4 text-3xl md:text-4xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
-              Bullion Trading
-            </h2>
-            <div
-              className="w-16 h-px mx-auto mb-6"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            ></div>
-            <p className="leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-              We supply gold doré, unrefined bars, and LBMA-standard refined gold to refineries and end users worldwide.
-            </p>
-          </div>
-
-          {/* Two large cards: Refineries & End Users */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div
-              className="p-10 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <div
-                className="w-14 h-14 flex items-center justify-center mb-6"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Building2 style={{ color: "var(--color-accent)" }} size={26} />
-              </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Tier 1 Partners
-              </div>
-              <h3 className="mb-3 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Refineries
-              </h3>
-              <div
-                className="w-10 h-px mb-5"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p className="mb-5 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Primarily in <span style={{ color: "var(--color-accent)" }}>Dubai</span> and{" "}
-                <span style={{ color: "var(--color-accent)" }}>Hong Kong</span>, for further processing into investment-grade bars.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["LBMA Standard", "Doré Bars", "Refined Gold"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs tracking-wider"
-                    style={{
-                      backgroundColor: "var(--color-accent-soft)",
-                      color: "var(--color-accent)",
-                      border: "1px solid var(--color-accent-strong)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="p-10 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <div
-                className="w-14 h-14 flex items-center justify-center mb-6"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Coins style={{ color: "var(--color-accent)" }} size={26} />
-              </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Direct Markets
-              </div>
-              <h3 className="mb-3 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                End Users
-              </h3>
-              <div
-                className="w-10 h-px mb-5"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p className="mb-5 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                Including dealers, jewelers, and institutional investors who require trusted access to physical gold.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Dealers", "Jewelers", "Institutional"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 text-xs tracking-wider"
-                    style={{
-                      backgroundColor: "var(--color-accent-soft)",
-                      color: "var(--color-accent)",
-                      border: "1px solid var(--color-accent-strong)",
-                      borderRadius: "2px",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Capabilities row */}
-          <div
-            className="p-8 md:p-10"
-            style={{
-              backgroundColor: "var(--color-bg)",
-              border: "1px solid var(--color-border)",
-              borderRadius: "4px",
-              background: "var(--gradient-card-tinted)",
-            }}
-          >
-            <p className="mb-8 leading-relaxed text-center max-w-3xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
-              In addition, we buy and sell all forms of bullion, refined products, coins, and collectibles. Our global market presence, network of accredited refiners, and extensive logistics capabilities give our clients access to competitive pricing, efficient fulfillment, and international transport and storage solutions.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { icon: Globe, label: "Global Presence" },
-                { icon: Award, label: "Accredited Refiners" },
-                { icon: Truck, label: "Logistics & Transport" },
-                { icon: Package, label: "Storage Solutions" },
-              ].map((cap, idx) => {
-                const Icon = cap.icon;
-                return (
-                  <div key={idx} className="text-center">
-                    <div
-                      className="w-14 h-14 mx-auto mb-3 flex items-center justify-center rounded-full"
-                      style={{
-                        backgroundColor: "var(--color-accent-soft)",
-                        border: "1px solid var(--color-accent-strong)",
-                      }}
-                    >
-                      <Icon style={{ color: "var(--color-accent)" }} size={22} />
-                    </div>
-                    <div
-                      className="text-xs tracking-[0.15em] uppercase"
-                      style={{ color: "var(--color-text)" }}
-                    >
-                      {cap.label}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
 
 
       {/* ============ FINAL CTA ============ */}

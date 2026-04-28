@@ -34,7 +34,7 @@ const navLinks: NavLink[] = [
     dropdown: [
       { path: "/about#mission-vision-values", label: "Mission, Vision & Values" },
       { path: "/about#leadership-team", label: "Leadership Team" },
-      { path: "/leadership", label: "Full Leadership Profiles" },
+      
     ],
   },
   {

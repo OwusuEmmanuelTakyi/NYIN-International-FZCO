@@ -221,10 +221,10 @@ export default function Home() {
             </div>
             <div className="lg:col-span-7">
               <p className="text-lg mb-6 leading-relaxed" style={{ color: "var(--color-text)" }}>
-                NYIN International FZCO is headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, giving us direct access to the world's most vital precious metal markets.
+                NYIN International FZCO is headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, giving us direct access to the world's most vital precious metals markets.
               </p>
               <p className="text-lg mb-6 leading-relaxed" style={{ color: "var(--color-text)" }}>
-                We oversee every phase of the precious metal value chain — from mine financing via streaming and royalties to bullion trading,  as well as strategic advisory for mine owners and capital-ready investors.
+                We oversee every phase of the precious metals value chain — from mine financing via streaming and royalties to bullion trading,  as well as strategic advisory for mine owners and capital-ready investors.
               </p>
               <Link
                 to="/about"
@@ -285,7 +285,7 @@ export default function Home() {
               {
                 num: "03",
                 icon: Landmark,
-                title: "Mining Advisory",
+                title: "Mining Advisory and Capital Solutions",
                 desc: "Strategic capital solutions and transaction advisory for concession holders, mine owners, and capital-ready investors.",
                 href: "/mining",
               },
@@ -729,7 +729,7 @@ export default function Home() {
             style={{ backgroundColor: "var(--color-accent)" }}
           ></div>
           <p className="mb-10 text-lg leading-relaxed max-w-2xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
-            Connect with our team to explore how we can support your precious metal trading, financing, or advisory needs.
+            Connect with our team to explore how we can support your precious metals trading, financing, or advisory needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

@@ -37,7 +37,7 @@ const OFFICES: OfficeDetails[] = [
       "Jumeirah Lakes Towers",
       "Dubai, United Arab Emirates",
     ],
-    phone: "+971 XXX XXXX",
+    phone: "+971 55 356 7545 ",
     email: "dubai@nyininternational.com",
     timezone: "GST (UTC+4)",
     hours: "Sun – Thu · 09:00 – 18:00",
@@ -49,7 +49,7 @@ const OFFICES: OfficeDetails[] = [
     left: "49.9%",
     top: "46.9%",
     address: ["Airport Residential Area", "Accra, Ghana"],
-    phone: "+233 XXX XXXX",
+    phone: " +233 54 447 9798 ",
     email: "accra@nyininternational.com",
     timezone: "GMT (UTC+0)",
     hours: "Mon – Fri · 08:30 – 17:30",
@@ -61,7 +61,7 @@ const OFFICES: OfficeDetails[] = [
     left: "81.7%",
     top: "37.6%",
     address: ["Central District", "Hong Kong SAR"],
-    phone: "+852 XXXX XXXX",
+    phone: "+852 95 401 093",
     email: "hongkong@nyininternational.com",
     timezone: "HKT (UTC+8)",
     hours: "Mon – Fri · 09:00 – 18:00",
@@ -477,9 +477,7 @@ export default function WorldMap({ embedded = false }: Props) {
             className="leading-relaxed"
             style={{ color: "var(--color-text-muted)" }}
           >
-            Headquartered in Dubai, with offices in Accra and Hong Kong. Our
-            ability to "follow the sun" supports the high levels of service we
-            offer clients and counterparties across all our activities.
+            
           </p>
         </div>
         {Map}
