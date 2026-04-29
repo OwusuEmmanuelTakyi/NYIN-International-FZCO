@@ -147,14 +147,14 @@ export default function Footer() {
             </p>
             {/* Email row */}
             <a
-              href="mailto:info@nyininternational.com"
+              href="mailto:info@nyinintl.com"
               className="inline-flex items-center gap-2 text-sm mb-5 transition-all"
               style={{ color: "var(--color-text-muted)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-muted)")}
             >
               <Mail size={14} style={{ color: "var(--color-accent)", flexShrink: 0 }} />
-              info@nyininternational.com
+              info@nyinintl.com
             </a>
 
             {/* One phone row per office */}

@@ -20,6 +20,7 @@ import leader1 from "../../images/1.png";
 import leader2 from "../../images/2.png";
 import leader3 from "../../images/3.png";
 import leader4 from "../../images/4.png";
+import leader5 from "../../images/3.png";
 
 // Color palette
 // Primary Black: var(--color-bg)
@@ -49,14 +50,6 @@ const leaders = [
     image: leader2,
   },
   {
-    slug: "terrence",
-    name: "Terrence Ofoe",
-    role: "Chief Financial Officer",
-    summary:
-      "Career spanning Databank Group, First Atlantic Bank, and Equipall Ghana — combining financial governance, AML compliance, and mining-sector finance.",
-    image: leader3,
-  },
-  {
     slug: "selorm-afudego",
     name: "Selorm Afudego",
     role: "Chief Operating Officer",
@@ -64,7 +57,81 @@ const leaders = [
       "Over a decade in sales, trading, and capital markets. Former Head of Fixed Income at Databank Group and a Registered Securities Dealer of the Ghana Stock Exchange.",
     image: leader4,
   },
+  {
+    slug: "terrence-ofoe",
+    name: "Terrence Ofoe",
+    role: "Chief Financial Officer",
+    summary:
+      "Career spanning Databank Group, First Atlantic Bank, and Equipall Ghana — combining financial governance, AML compliance, and mining-sector finance.",
+    image: leader3,
+  },
+  {
+    slug: "kuuku-amos",
+    name: "Kuuku Amos",
+    role: "Chief Strategy Officer",
+    summary:
+      "Driving international expansion and operational modernization at NYIN Minerals. Specializes in trade finance, cross-border logistics, and turning market volatility into bankable growth.",
+    image: leader5,
+  },
 ];
+
+function LeaderCard({ leader }: { leader: typeof leaders[0] }) {
+  return (
+    <div
+      className="group transition-all duration-300 overflow-hidden"
+      style={{
+        backgroundColor: "var(--color-bg)",
+        border: "1px solid var(--color-border)",
+        borderRadius: "4px",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-accent)";
+        e.currentTarget.style.transform = "translateY(-4px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = "var(--color-border)";
+        e.currentTarget.style.transform = "translateY(0)";
+      }}
+    >
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
+        <img
+          src={leader.image}
+          alt={leader.name}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          style={{ filter: "grayscale(0.3) brightness(0.85) contrast(1.05)" }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(180deg, rgba(11,11,11,0) 50%, rgba(11,11,11,0.8) 100%)",
+          }}
+        />
+      </div>
+      <div className="p-6">
+        <h3 className="mb-1 text-lg leading-tight" style={{ color: "var(--color-text)" }}>
+          {leader.name}
+        </h3>
+        <p className="text-xs tracking-[0.15em] uppercase mb-3" style={{ color: "var(--color-accent)" }}>
+          {leader.role}
+        </p>
+        <div className="w-8 h-px mb-4" style={{ backgroundColor: "var(--color-accent-medium)" }} />
+        <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--color-text-muted)" }}>
+          {leader.summary}
+        </p>
+        <Link
+          to={`/leadership#${leader.slug}`}
+          className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase transition-all duration-300"
+          style={{ color: "var(--color-accent)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent-hover)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+        >
+          Read More
+          <ArrowRight size={14} />
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   return (
@@ -112,7 +179,7 @@ export default function About() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-            At NYIN International FZCO, we operate at the heart of the global precious metals industry. Headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, we maintain direct access to the world’s most influential precious metals markets.
+            At NYIN International FZCO, we operate at the heart of the global precious metals industry. Headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, we maintain direct access to the world's most influential precious metals markets.
           </p>
           <p
             className="text-lg mb-6 leading-relaxed"
@@ -121,10 +188,8 @@ export default function About() {
               textShadow: "0 2px 20px rgba(0,0,0,0.4)",
             }}
           >
-           
             We provide a full spectrum of services, including physical and financial trading of gold and other precious metals, mining support through streaming and royalties, and tailored advisory solutions. Our expertise uniquely positions us to connect asset owners seeking successful exits with capital-ready investors.
           </p>
-          
         </div>
       </HeroVideo>
 
@@ -171,18 +236,8 @@ export default function About() {
                   boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
                 }}
               >
-                <div
-                  className="text-3xl font-light mb-1"
-                  style={{ color: "var(--color-accent)" }}
-                >
-                 
-                </div>
-                <div
-                  className="text-xs tracking-[0.2em] uppercase"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
-                 
-                </div>
+                <div className="text-3xl font-light mb-1" style={{ color: "var(--color-accent)" }}></div>
+                <div className="text-xs tracking-[0.2em] uppercase" style={{ color: "var(--color-text-muted)" }}></div>
               </div>
             </div>
 
@@ -190,9 +245,7 @@ export default function About() {
               <div
                 className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
                 style={{ color: "var(--color-accent)" }}
-              >
-                
-              </div>
+              ></div>
               <h2
                 className="mb-4 text-3xl md:text-4xl font-light leading-tight"
                 style={{ color: "var(--color-text)" }}
@@ -214,14 +267,8 @@ export default function About() {
                   "Bespoke advisory and exit services",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
-                    <CheckCircle
-                      style={{ color: "var(--color-accent)" }}
-                      size={18}
-                      className="shrink-0"
-                    />
-                    <span style={{ color: "var(--color-text)" }} className="text-sm">
-                      {item}
-                    </span>
+                    <CheckCircle style={{ color: "var(--color-accent)" }} size={18} className="shrink-0" />
+                    <span style={{ color: "var(--color-text)" }} className="text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -244,107 +291,61 @@ export default function About() {
             >
               Our Purpose
             </div>
-            <h2
-              className="mb-4 text-3xl md:text-4xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
+            <h2 className="mb-4 text-3xl md:text-4xl font-light" style={{ color: "var(--color-text)" }}>
               Mission & Vision
             </h2>
-            <div
-              className="w-16 h-px mx-auto mb-6"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            ></div>
+            <div className="w-16 h-px mx-auto mb-6" style={{ backgroundColor: "var(--color-accent)" }}></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div
-              className="p-10 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
+            {[
+              {
+                Icon: Target,
+                label: "Mission",
+                title: "Unlocking Africa's Precious Metals Potential",
+                body: "To provide an integrated platform combining transparent bullion trading, non-dilutive financing via streaming and royalties, and strategic advisory services — ensuring miners, investors, and communities prosper together.",
+              },
+              {
+                Icon: Eye,
+                label: "Vision",
+                title: "Africa's Trusted Gateway for Precious Metals Capital",
+                body: "To be Africa's most trusted gateway for precious metals capital — driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.",
+              },
+            ].map(({ Icon, label, title, body }, idx) => (
               <div
-                className="w-14 h-14 flex items-center justify-center mb-6"
+                key={idx}
+                className="p-10 transition-all duration-300"
                 style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
+                  backgroundColor: "var(--color-bg)",
+                  border: "1px solid var(--color-border)",
                   borderRadius: "4px",
                 }}
+                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--color-accent)")}
+                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--color-border)")}
               >
-                <Target style={{ color: "var(--color-accent)" }} size={26} />
+                <div
+                  className="w-14 h-14 flex items-center justify-center mb-6"
+                  style={{
+                    backgroundColor: "var(--color-accent-soft)",
+                    border: "1px solid var(--color-accent-strong)",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Icon style={{ color: "var(--color-accent)" }} size={26} />
+                </div>
+                <div className="text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "var(--color-accent)" }}>
+                  {label}
+                </div>
+                <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>{title}</h3>
+                <div className="w-12 h-px mb-6" style={{ backgroundColor: "var(--color-accent-medium)" }}></div>
+                <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">{body}</p>
               </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Mission
-              </div>
-              <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Unlocking Africa's Precious Metals Potential
-              </h3>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">
-                To provide an integrated platform combining transparent bullion trading, non-dilutive financing via streaming and royalties, and strategic advisory services — ensuring miners, investors, and communities prosper together.
-              </p>
-            </div>
-
-            <div
-              className="p-10 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--color-bg)",
-                border: "1px solid var(--color-border)",
-                borderRadius: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-accent)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = "var(--color-border)";
-              }}
-            >
-              <div
-                className="w-14 h-14 flex items-center justify-center mb-6"
-                style={{
-                  backgroundColor: "var(--color-accent-soft)",
-                  border: "1px solid var(--color-accent-strong)",
-                  borderRadius: "4px",
-                }}
-              >
-                <Eye style={{ color: "var(--color-accent)" }} size={26} />
-              </div>
-              <div
-                className="text-xs tracking-[0.3em] uppercase mb-2"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Vision
-              </div>
-              <h3 className="mb-4 text-2xl font-light" style={{ color: "var(--color-text)" }}>
-                Africa's Trusted Gateway for Precious Metals Capital
-              </h3>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p style={{ color: "var(--color-text-muted)" }} className="leading-relaxed">
-                To be Africa’s most trusted gateway for precious metals capital — driving ethical production, financial innovation, and sustainable growth across the entire mining value chain.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ============ VALUES (6) ============ */}
+      {/* ============ VALUES ============ */}
       <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -354,16 +355,10 @@ export default function About() {
             >
               What We Stand For
             </div>
-            <h2
-              className="mb-4 text-3xl md:text-4xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
+            <h2 className="mb-4 text-3xl md:text-4xl font-light" style={{ color: "var(--color-text)" }}>
               Our Values
             </h2>
-            <div
-              className="w-16 h-px mx-auto mb-6"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            ></div>
+            <div className="w-16 h-px mx-auto mb-6" style={{ backgroundColor: "var(--color-accent)" }}></div>
             <p className="max-w-2xl mx-auto" style={{ color: "var(--color-text-muted)" }}>
               The principles that guide everything we do
             </p>
@@ -389,7 +384,6 @@ export default function About() {
                 title: "Local Expertise, Global Reach",
                 desc: "We bridge African producers to world markets seamlessly — combining on-the-ground presence in key African hubs with international logistics, refining, and capital networks.",
               },
-              
             ].map((value, idx) => {
               const Icon = value.icon;
               return (
@@ -426,16 +420,9 @@ export default function About() {
                   >
                     <Icon style={{ color: "var(--color-accent)" }} size={22} />
                   </div>
-                  <h3 className="mb-3 text-lg" style={{ color: "var(--color-text)" }}>
-                    {value.title}
-                  </h3>
-                  <div
-                    className="w-8 h-px mb-3"
-                    style={{ backgroundColor: "var(--color-accent-medium)" }}
-                  ></div>
-                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                    {value.desc}
-                  </p>
+                  <h3 className="mb-3 text-lg" style={{ color: "var(--color-text)" }}>{value.title}</h3>
+                  <div className="w-8 h-px mb-3" style={{ backgroundColor: "var(--color-accent-medium)" }}></div>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>{value.desc}</p>
                 </div>
               );
             })}
@@ -457,93 +444,23 @@ export default function About() {
             >
               The People Behind Us
             </div>
-            <h2
-              className="mb-4 text-3xl md:text-4xl font-light"
-              style={{ color: "var(--color-text)" }}
-            >
+            <h2 className="mb-4 text-3xl md:text-4xl font-light" style={{ color: "var(--color-text)" }}>
               Leadership Team
             </h2>
-            <div
-              className="w-16 h-px mx-auto mb-6"
-              style={{ backgroundColor: "var(--color-accent)" }}
-            ></div>
-            
+            <div className="w-16 h-px mx-auto mb-6" style={{ backgroundColor: "var(--color-accent)" }}></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {leaders.map((leader, idx) => (
-              <div
-                key={idx}
-                className="group transition-all duration-300 overflow-hidden"
-                style={{
-                  backgroundColor: "var(--color-bg)",
-                  border: "1px solid var(--color-border)",
-                  borderRadius: "4px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "var(--color-accent)";
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = "var(--color-border)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                <div
-                  className="relative w-full overflow-hidden"
-                  style={{ aspectRatio: "1 / 1" }}
-                >
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    style={{ filter: "grayscale(0.3) brightness(0.85) contrast(1.05)" }}
-                  />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(11,11,11,0) 50%, rgba(11,11,11,0.8) 100%)",
-                    }}
-                  ></div>
-                </div>
+          {/* Row 1 — 3 cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {leaders.slice(0, 3).map((leader, idx) => (
+              <LeaderCard key={idx} leader={leader} />
+            ))}
+          </div>
 
-                <div className="p-6">
-                  <h3 className="mb-1 text-lg leading-tight" style={{ color: "var(--color-text)" }}>
-                    {leader.name}
-                  </h3>
-                  <p
-                    className="text-xs tracking-[0.15em] uppercase mb-3"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {leader.role}
-                  </p>
-                  <div
-                    className="w-8 h-px mb-4"
-                    style={{ backgroundColor: "var(--color-accent-medium)" }}
-                  ></div>
-                  <p
-                    className="text-sm leading-relaxed mb-5"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    {leader.summary}
-                  </p>
-                  <Link
-                    to={`/leadership#${leader.slug}`}
-                    className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase transition-all duration-300"
-                    style={{ color: "var(--color-accent)" }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.color = "var(--color-accent-hover)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.color = "var(--color-accent)";
-                    }}
-                  >
-                    Read More
-                    <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
+          {/* Row 2 — 2 cards, centred */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-2/3 lg:mx-auto">
+            {leaders.slice(3).map((leader, idx) => (
+              <LeaderCard key={idx} leader={leader} />
             ))}
           </div>
 
@@ -572,9 +489,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {/* ============ STATS ============ */}
-      
     </div>
   );
 }

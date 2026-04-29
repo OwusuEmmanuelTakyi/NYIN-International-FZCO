@@ -8,6 +8,7 @@ import {
   TrendingUp,
   ShieldCheck,
   Cog,
+  Globe,
   Mail,
   Linkedin,
 } from "lucide-react";
@@ -19,6 +20,7 @@ import leader1 from "../../images/1.png";
 import leader2 from "../../images/2.png";
 import leader3 from "../../images/3.png";
 import leader4 from "../../images/4.png";
+import leader5 from "../../images/3.png";
 
 // Color palette
 // Primary Black: var(--color-bg)
@@ -36,7 +38,7 @@ type Leader = {
   shortRole: string;
   icon: any;
   image: string;
-  bio: string[]; // paragraphs
+  bio: string[];
   education: string[];
   highlights: string[];
 };
@@ -53,12 +55,10 @@ const leaders: Leader[] = [
       "Joe is the Managing Director of NYIN Minerals Ltd and CEO of NYIN International FZCO, bringing over 15 years of global financial markets experience to Africa's gold sector.",
       "Previously, he managed trade flows worth billions of dollars in equity derivatives and credit at leading inter-dealer brokers BGC and GFI.",
       "At NYIN, Joe leads bullion trading, streaming and royalties, and mining advisory services. His firsthand work with African miners drives his commitment to non-dilutive financing, market access, and exit advisory solutions that empower miners and attract institutional capital.",
-      "He holds a Bachelor's in International Finance and Capital Markets from the University of Brighton and a Master's in Quantitative Finance from Westminster Business School."
+      "He holds a Bachelor's in International Finance and Capital Markets from the University of Brighton and a Master's in Quantitative Finance from Westminster Business School.",
     ],
-    education: [
-          ],
-    highlights: [
-          ],
+    education: [],
+    highlights: [],
   },
   {
     slug: "emmanuel-conduah",
@@ -70,33 +70,11 @@ const leaders: Leader[] = [
     bio: [
       "Emmanuel Conduah, CPA, is the Chief Investment Officer of NYIN International FZCO, overseeing investment strategy, capital deployment, and portfolio risk management across bullion trading, streaming and royalties, and mining advisory.",
       "With over a decade of senior financial leadership experience — including a key tenure at Caterpillar Inc. — Emmanuel brings deep expertise in asset-backed finance and operational risk assessment. He has also served as CFO and COO of RPS Oncology and is a co-founder of the SIPAB initiative, supporting hundreds of SMEs across Ghana and Africa.",
-      "At NYIN, Emmanuel evaluates mining assets, structures streaming and royalty agreements, and leads due diligence for investments and advisory mandates. His blend of corporate finance discipline, cross-industry insight, and on-the-ground African market knowledge drives NYIN’s investment decisions.",
-      "Emmanuel holds a Bachelor’s degree in Accounting from Minnesota State University and is a Certified Public Accountant (CPA).",
-    ],
-    education: [
-      
-    ],
-    highlights: [
-      
-    ],
-  },
-  {
-    slug: "terrence",
-    name: "Terrence Ofoe",
-    role: "Chief Financial Officer",
-    shortRole: "CFO",
-    icon: ShieldCheck,
-    image: leader3,
-    bio: [
-      "Terrence serves as Chief Financial Officer of NYIN International FZCO, where he oversees all finance, risk, and administration functions. He is responsible for financial planning, internal controls, regulatory compliance, and risk frameworks across the company's three core business lines: bullion trading, streaming and royalties, and mining advisory.",
-      "Terrence began his career at the Databank Group, where he developed foundational expertise in financial reporting and analysis. He then moved to First Atlantic Asset Management and Brokers as Risk & Compliance Manager, implementing robust risk assessment frameworks, anti money laundering (AML) protocols, and compliance programs aligned with SEC and Ghana Stock Exchange (GSE) requirements.",
-      "His leadership experience expanded through roles as Internal Control Officer at First Atlantic Bank and Finance Manager at Equipall Ghana Ltd, a mining support and equipment leasing company. At Equipall, he strengthened financial controls, improved operational efficiency, and gained direct insight into the financial dynamics of the mining services sector — knowledge he now applies to NYIN's streaming and advisory operations.",
-      "Terrence holds a degree in Business Finance and Economics from the University of East Anglia. He brings a blended expertise in financial governance, risk management, and regulatory compliance, ensuring that NYIN International FZCO operates with financial integrity and full adherence to international and local standards.",
+      "At NYIN, Emmanuel evaluates mining assets, structures streaming and royalty agreements, and leads due diligence for investments and advisory mandates. His blend of corporate finance discipline, cross-industry insight, and on-the-ground African market knowledge drives NYIN's investment decisions.",
+      "Emmanuel holds a Bachelor's degree in Accounting from Minnesota State University and is a Certified Public Accountant (CPA).",
     ],
     education: [],
-    highlights: [
-      
-    ],
+    highlights: [],
   },
   {
     slug: "selorm-afudego",
@@ -112,15 +90,39 @@ const leaders: Leader[] = [
       "He holds a Bachelor of Science degree in Mathematics from the University of Ghana.",
     ],
     education: [],
-    highlights: [
-      
-    ],
+    highlights: [],
   },
-];
-
-// Selorm has a specific list of responsibilities — render them only on his card
-const selormResponsibilities = [
-  
+  {
+    slug: "terrence-ofoe",
+    name: "Terrence Ofoe",
+    role: "Chief Financial Officer",
+    shortRole: "CFO",
+    icon: ShieldCheck,
+    image: leader3,
+    bio: [
+      "Terrence serves as Chief Financial Officer of NYIN International FZCO, where he oversees all finance, risk, and administration functions. He is responsible for financial planning, internal controls, regulatory compliance, and risk frameworks across the company's three core business lines: bullion trading, streaming and royalties, and mining advisory.",
+      "Terrence began his career at the Databank Group, where he developed foundational expertise in financial reporting and analysis. He then moved to First Atlantic Asset Management and Brokers as Risk & Compliance Manager, implementing robust risk assessment frameworks, anti money laundering (AML) protocols, and compliance programs aligned with SEC and Ghana Stock Exchange (GSE) requirements.",
+      "His leadership experience expanded through roles as Internal Control Officer at First Atlantic Bank and Finance Manager at Equipall Ghana Ltd, a mining support and equipment leasing company. At Equipall, he strengthened financial controls, improved operational efficiency, and gained direct insight into the financial dynamics of the mining services sector — knowledge he now applies to NYIN's streaming and advisory operations.",
+      "Terrence holds a degree in Business Finance and Economics from the University of East Anglia. He brings a blended expertise in financial governance, risk management, and regulatory compliance, ensuring that NYIN International FZCO operates with financial integrity and full adherence to international and local standards.",
+    ],
+    education: [],
+    highlights: [],
+  },
+  {
+    slug: "kuuku-amos",
+    name: "Kuuku Amos",
+    role: "Chief Strategy Officer",
+    shortRole: "CSO",
+    icon: Globe,
+    image: leader5,
+    bio: [
+      "Kuuku Amos is the Chief Strategy Officer driving the international expansion and operational modernization of NYIN Minerals. Operating at the nexus of economics and global commodities, Kuuku brings a sophisticated financial perspective to the gold and precious metals supply chain.",
+      "From structuring complex trade finance solutions to optimizing cross-border logistics, he specializes in turning market volatility into bankable growth. His expertise spans regulated market navigation, capital efficiency, and superior market positioning — translating macroeconomic insight into actionable strategy across NYIN's business lines.",
+      "With an academic pedigree in economics and a professional background in international business and banking, Kuuku is an expert at delivering transparency and capital efficiency across complex, multi-jurisdictional transactions.",
+    ],
+    education: [],
+    highlights: [],
+  },
 ];
 
 export default function Leadership() {
@@ -228,9 +230,7 @@ export default function Leadership() {
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-start ${
-                  !isEven ? "lg:flex-row-reverse" : ""
-                }`}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-start`}
               >
                 {/* Portrait — alternates left/right */}
                 <div className={`lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
@@ -284,35 +284,37 @@ export default function Leadership() {
                     </div>
 
                     {/* Highlights below portrait */}
-                    <div className="mt-8 space-y-3">
-                      {leader.highlights.map((hl, hIdx) => (
-                        <div
-                          key={hIdx}
-                          className="flex items-start gap-3 p-3"
-                          style={{
-                            backgroundColor: cardBg,
-                            border: "1px solid var(--color-border)",
-                            borderRadius: "4px",
-                          }}
-                        >
-                          <Award
-                            style={{ color: "var(--color-accent)" }}
-                            size={16}
-                            className="shrink-0 mt-0.5"
-                          />
-                          <span className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-                            {hl}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
+                    {leader.highlights.length > 0 && (
+                      <div className="mt-8 space-y-3">
+                        {leader.highlights.map((hl, hIdx) => (
+                          <div
+                            key={hIdx}
+                            className="flex items-start gap-3 p-3"
+                            style={{
+                              backgroundColor: cardBg,
+                              border: "1px solid var(--color-border)",
+                              borderRadius: "4px",
+                            }}
+                          >
+                            <Award
+                              style={{ color: "var(--color-accent)" }}
+                              size={16}
+                              className="shrink-0 mt-0.5"
+                            />
+                            <span className="text-sm" style={{ color: "var(--color-text-muted)" }}>
+                              {hl}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Bio Content */}
                 <div className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                   <div
-                    className="inline-flex  items-center gap-2 mb-4 text-xs tracking-[0.3em] uppercase"
+                    className="inline-flex items-center gap-2 mb-4 text-xs tracking-[0.3em] uppercase"
                     style={{ color: "var(--color-accent)" }}
                   >
                     <Icon size={14} />
@@ -330,41 +332,19 @@ export default function Leadership() {
                   ></div>
 
                   <div className="space-y-5">
-  {leader.bio.map((para, pIdx) => (
-    <p
-      key={pIdx}
-      className="leading-relaxed text-justify"
-      style={{ color: "var(--color-text-muted)" }}
-    >
-      {para}
-    </p>
-  ))}
-</div>
+                    {leader.bio.map((para, pIdx) => (
+                      <p
+                        key={pIdx}
+                        className="leading-relaxed text-justify"
+                        style={{ color: "var(--color-text-muted)" }}
+                      >
+                        {para}
+                      </p>
+                    ))}
+                  </div>
 
-                  {/* Selorm's responsibilities (only him) */}
-                  {leader.slug === "selorm-afudego" && (
-                    <div
-                      className="mt-8 p-6"
-                      style={{
-                        backgroundColor: cardBg,
-                        border: "1px solid var(--color-border)",
-                        borderRadius: "4px",
-                      }}
-                    >
-                      
-                      <div
-                        className="w-8 h-px mb-4"
-                        style={{ backgroundColor: "var(--color-accent-medium)" }}
-                      ></div>
-                      
-                    </div>
-                  )}
-
-                  {/* Education */}
-
-
-                  {/* Connect placeholder */}
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  {/* Connect */}
+                  <div className="mt-8 flex flex-wrap gap-3">
                     <Link
                       to="/contact"
                       className="inline-flex items-center gap-2 px-5 py-2.5 text-xs tracking-[0.15em] uppercase transition-all"

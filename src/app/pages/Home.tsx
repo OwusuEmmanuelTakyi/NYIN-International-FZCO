@@ -671,7 +671,7 @@ export default function Home() {
         <div className="space-y-3">
           {[
             { city: "Dubai, UAE", region: "MENA Hub & Headquarters" },
-            { city: "Accra, Ghana", region: "West Africa Operations" },
+            { city: "Accra, Ghana", region: "West African Operations" },
             { city: "Hong Kong", region: "Asia-Pacific Gateway" },
           ].map((loc, idx) => (
             <div
