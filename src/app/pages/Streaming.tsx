@@ -159,10 +159,10 @@ export default function Streaming() {
                 className="w-12 h-px mb-6"
                 style={{ backgroundColor: "var(--color-accent)" }}
               ></div>
-              <p className="mb-5 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-5 leading-relaxed text-justify" style={{ color: "var(--color-text-muted)" }}>
                 We provide capital by funding essential equipment — such as heavy-duty gold mining machinery and eco-friendly processing plants — while retaining ownership throughout the project lifecycle.
               </p>
-              <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-8 leading-relaxed text-justify" style={{ color: "var(--color-text-muted)" }}>
                 Partners gain immediate operational capacity; in return, we receive a fixed share of future gold production at a discount (a gold stream) or revenue (a gold royalty). This alignment ensures that our success grows alongside theirs, fostering mutual prosperity for gold miners, investors, and local communities.
               </p>
 

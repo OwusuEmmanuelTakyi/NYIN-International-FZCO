@@ -220,10 +220,10 @@ export default function Home() {
               ></div>
             </div>
             <div className="lg:col-span-7">
-              <p className="text-lg mb-6 leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <p className="text-lg mb-6 leading-relaxed text-justify" style={{ color: "var(--color-text)" }}>
                 NYIN International FZCO is headquartered in Dubai, with strategic hubs in Ghana and Hong Kong, giving us direct access to the world's most vital precious metals markets.
               </p>
-              <p className="text-lg mb-6 leading-relaxed" style={{ color: "var(--color-text)" }}>
+              <p className="text-lg mb-6 leading-relaxed text-justify" style={{ color: "var(--color-text)" }}>
                 We oversee every phase of the precious metals value chain — from mine financing via streaming and royalties to bullion trading,  as well as strategic advisory for mine owners and capital-ready investors.
               </p>
               <Link

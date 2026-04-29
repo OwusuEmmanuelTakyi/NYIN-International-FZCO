@@ -203,7 +203,7 @@ export default function About() {
                 className="w-12 h-px mb-6"
                 style={{ backgroundColor: "var(--color-accent)" }}
               ></div>
-              <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+              <p className="mb-8 leading-relaxed text-justify" style={{ color: "var(--color-text-muted)" }}>
                 We oversee every phase of the precious metals value chain and deliver end-to-end solutions tailored to our clients' unique needs. Whether you're a first-time buyer seeking entry-level guidance or an experienced precious metals trader or mining professional, we take the time to understand your goals and show you exactly how NYIN International FZCO can help you achieve them.
               </p>
 
