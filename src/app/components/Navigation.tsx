@@ -10,7 +10,7 @@ import {
   Activity,
   Info,
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Logo from "./Logo";
 
@@ -34,7 +34,6 @@ const navLinks: NavLink[] = [
     dropdown: [
       { path: "/about#mission-vision-values", label: "Mission, Vision & Values" },
       { path: "/about#leadership-team", label: "Leadership Team" },
-      
     ],
   },
   {
@@ -44,14 +43,11 @@ const navLinks: NavLink[] = [
       { path: "/streaming#sustainable-model", label: "Our Sustainable Model" },
       { path: "/streaming#how-it-works", label: "How It Works" },
       { path: "/streaming#why-partner", label: "Why Partner With Us" },
-      { path: "/streaming#brokerage-trading", label: "Brokerage & Trading" },
-      { path: "/streaming#esg", label: "Sustainable Mining Finance" },
     ],
   },
   { path: "/trading", label: "Trading & Execution" },
   { path: "/mining", label: "Mining Advisory & Capital Solutions" },
   { path: "/contact", label: "Contact Us" },
-  //{ path: "/blog", label: "Blog" },
 ];
 
 // =================== LIVE PRICE TICKER ===================
@@ -61,13 +57,12 @@ type Price = {
   name: string;
   price: number | null;
   prev: number | null;
-  history: number[];      // last few prices for sparkline / day range
+  history: number[];
   sessionHigh: number | null;
   sessionLow: number | null;
   updatedAt: string | null;
 };
 
-// Static educational content shown in the popover (price-independent context)
 const ASSET_INFO: Record<string, {
   fullName: string;
   description: string;
@@ -100,7 +95,6 @@ const ASSET_INFO: Record<string, {
   },
 };
 
-// Mini sparkline component built with inline SVG
 function Sparkline({ data, isUp }: { data: number[]; isUp: boolean }) {
   if (data.length < 2) {
     return (
@@ -127,22 +121,14 @@ function Sparkline({ data, isUp }: { data: number[]; isUp: boolean }) {
   const stroke = isUp ? "var(--color-accent)" : "var(--color-text-muted)";
 
   return (
-    <svg
-      viewBox={`0 0 ${w} ${h}`}
-      preserveAspectRatio="none"
-      className="w-full h-12"
-    >
+    <svg viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" className="w-full h-12">
       <defs>
         <linearGradient id="sparkfill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor={stroke} stopOpacity="0.25" />
           <stop offset="100%" stopColor={stroke} stopOpacity="0" />
         </linearGradient>
       </defs>
-      <polyline
-        points={`0,${h} ${points} ${w},${h}`}
-        fill="url(#sparkfill)"
-        stroke="none"
-      />
+      <polyline points={`0,${h} ${points} ${w},${h}`} fill="url(#sparkfill)" stroke="none" />
       <polyline
         points={points}
         fill="none"
@@ -182,13 +168,9 @@ function PriceTicker() {
   const [openInsight, setOpenInsight] = useState<string | null>(null);
   const popoverRef = useRef<HTMLDivElement | null>(null);
 
-  // Close popover when clicking outside
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (
-        popoverRef.current &&
-        !popoverRef.current.contains(e.target as Node)
-      ) {
+      if (popoverRef.current && !popoverRef.current.contains(e.target as Node)) {
         setOpenInsight(null);
       }
     };
@@ -198,7 +180,6 @@ function PriceTicker() {
     }
   }, [openInsight]);
 
-  // Close popover on ESC
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpenInsight(null);
@@ -222,23 +203,16 @@ function PriceTicker() {
     };
 
     const fetchAll = async () => {
-      const [gold, silver] = await Promise.all([
-        fetchPrice("XAU"),
-        fetchPrice("XAG"),
-      ]);
+      const [gold, silver] = await Promise.all([fetchPrice("XAU"), fetchPrice("XAG")]);
       if (!mounted) return;
 
       setPrices((current) =>
         current.map((p) => {
           const newPrice = p.symbol === "XAU" ? gold : silver;
           if (newPrice === null) return p;
-
           const newHistory = [...p.history, newPrice].slice(-30);
-          const sessionHigh =
-            p.sessionHigh === null ? newPrice : Math.max(p.sessionHigh, newPrice);
-          const sessionLow =
-            p.sessionLow === null ? newPrice : Math.min(p.sessionLow, newPrice);
-
+          const sessionHigh = p.sessionHigh === null ? newPrice : Math.max(p.sessionHigh, newPrice);
+          const sessionLow = p.sessionLow === null ? newPrice : Math.min(p.sessionLow, newPrice);
           return {
             ...p,
             prev: p.price,
@@ -254,7 +228,6 @@ function PriceTicker() {
     };
 
     fetchAll();
-    // Refresh every 60 seconds
     const interval = setInterval(fetchAll, 60_000);
     return () => {
       mounted = false;
@@ -264,10 +237,7 @@ function PriceTicker() {
 
   const formatPrice = (price: number | null) => {
     if (price === null) return "—";
-    return price.toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
+    return price.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   };
 
   const formatTime = (iso: string | null) => {
@@ -291,7 +261,6 @@ function PriceTicker() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 sm:gap-6 py-2 text-xs">
-          {/* Left side — label */}
           <div
             className="hidden sm:flex items-center gap-2 tracking-[0.2em] uppercase"
             style={{ color: "var(--color-text-muted)" }}
@@ -306,9 +275,6 @@ function PriceTicker() {
             Live Spot Prices
           </div>
 
-          {/* Right side — price tickers (clickable).
-              Mobile: only Gold shown, compact.
-              Desktop (sm+): both Gold and Silver, full layout. */}
           <div className="flex items-center gap-1 sm:gap-3 ml-auto">
             {prices.map((p) => {
               const change =
@@ -318,68 +284,45 @@ function PriceTicker() {
               const isUp = change > 0;
               const isDown = change < 0;
               const isOpen = openInsight === p.symbol;
-              // Hide Silver below sm breakpoint
               const hideOnMobile = p.symbol === "XAG";
 
               return (
                 <button
                   key={p.symbol}
-                  onClick={() =>
-                    setOpenInsight(isOpen ? null : p.symbol)
-                  }
+                  onClick={() => setOpenInsight(isOpen ? null : p.symbol)}
                   className={`flex items-center gap-1.5 sm:gap-2 whitespace-nowrap px-2 sm:px-3 py-1 sm:py-1.5 transition-all text-[11px] sm:text-xs ${
                     hideOnMobile ? "hidden sm:flex" : "flex"
                   }`}
                   style={{
-                    backgroundColor: isOpen
-                      ? "var(--color-accent-soft)"
-                      : "transparent",
-                    border: `1px solid ${
-                      isOpen ? "var(--color-accent)" : "transparent"
-                    }`,
+                    backgroundColor: isOpen ? "var(--color-accent-soft)" : "transparent",
+                    border: `1px solid ${isOpen ? "var(--color-accent)" : "transparent"}`,
                     borderRadius: "2px",
                     cursor: "pointer",
                   }}
                   onMouseEnter={(e) => {
-                    if (!isOpen) {
-                      e.currentTarget.style.backgroundColor =
-                        "rgba(201, 166, 70, 0.05)";
-                    }
+                    if (!isOpen) e.currentTarget.style.backgroundColor = "rgba(201, 166, 70, 0.05)";
                   }}
                   onMouseLeave={(e) => {
-                    if (!isOpen) {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                    }
+                    if (!isOpen) e.currentTarget.style.backgroundColor = "transparent";
                   }}
                   aria-label={`View ${p.name} price details`}
                   aria-expanded={isOpen}
                 >
-                  <span
-                    className="tracking-[0.15em] uppercase"
-                    style={{ color: "var(--color-accent)" }}
-                  >
+                  <span className="tracking-[0.15em] uppercase" style={{ color: "var(--color-accent)" }}>
                     {p.name}
                   </span>
                   <span style={{ color: "var(--color-text)" }} className="font-medium">
                     ${formatPrice(p.price)}
-                    <span
-                      className="ml-1 text-[9px] sm:text-[10px] hidden sm:inline"
-                      style={{ color: "var(--color-text-muted)" }}
-                    >
+                    <span className="ml-1 text-[9px] sm:text-[10px] hidden sm:inline" style={{ color: "var(--color-text-muted)" }}>
                       /oz
                     </span>
                   </span>
-                  {/* Change delta — hidden on mobile to save space */}
                   {(isUp || isDown) && (
                     <span
                       className="hidden sm:flex items-center gap-0.5 text-[10px]"
                       style={{ color: isUp ? "var(--color-accent)" : "var(--color-text-muted)" }}
                     >
-                      {isUp ? (
-                        <TrendingUp size={10} />
-                      ) : (
-                        <TrendingDown size={10} />
-                      )}
+                      {isUp ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
                       {Math.abs(change).toFixed(2)}
                     </span>
                   )}
@@ -398,7 +341,6 @@ function PriceTicker() {
         </div>
       </div>
 
-      {/* Insight popover */}
       {activeInsight && (
         <div
           ref={popoverRef}
@@ -412,32 +354,17 @@ function PriceTicker() {
             maxWidth: "calc(100vw - 16px)",
           }}
         >
-          {/* Top gold accent line */}
-          <div
-            className="h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)",
-            }}
-          ></div>
-
+          <div className="h-px" style={{ background: "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)" }}></div>
           <div className="p-5">
-            {/* Header */}
             <div className="flex items-start justify-between mb-4">
               <div>
                 <div className="flex items-center gap-2 mb-1">
                   <Coins style={{ color: "var(--color-accent)" }} size={16} />
-                  <h3
-                    className="text-base font-medium"
-                    style={{ color: "var(--color-text)" }}
-                  >
+                  <h3 className="text-base font-medium" style={{ color: "var(--color-text)" }}>
                     {ASSET_INFO[activeInsight.symbol].fullName}
                   </h3>
                 </div>
-                <div
-                  className="text-[10px] tracking-[0.2em] uppercase"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
+                <div className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "var(--color-text-muted)" }}>
                   {ASSET_INFO[activeInsight.symbol].unit}
                 </div>
               </div>
@@ -453,18 +380,11 @@ function PriceTicker() {
               </button>
             </div>
 
-            {/* Price headline */}
             <div className="mb-4">
-              <div
-                className="text-3xl font-light leading-none mb-1"
-                style={{ color: "var(--color-accent)" }}
-              >
+              <div className="text-3xl font-light leading-none mb-1" style={{ color: "var(--color-accent)" }}>
                 ${formatPrice(activeInsight.price)}
               </div>
-              <div
-                className="flex items-center gap-3 text-[11px]"
-                style={{ color: "var(--color-text-muted)" }}
-              >
+              <div className="flex items-center gap-3 text-[11px]" style={{ color: "var(--color-text-muted)" }}>
                 <span className="flex items-center gap-1">
                   <Clock size={10} />
                   {formatTime(activeInsight.updatedAt)}
@@ -477,25 +397,19 @@ function PriceTicker() {
               </div>
             </div>
 
-            {/* Sparkline */}
             <div className="mb-4">
-              <div
-                className="text-[10px] tracking-[0.2em] uppercase mb-1"
-                style={{ color: "var(--color-text-muted)" }}
-              >
+              <div className="text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: "var(--color-text-muted)" }}>
                 Recent Trend
               </div>
               <Sparkline
                 data={activeInsight.history}
                 isUp={
                   activeInsight.history.length >= 2 &&
-                  activeInsight.history[activeInsight.history.length - 1] >=
-                    activeInsight.history[0]
+                  activeInsight.history[activeInsight.history.length - 1] >= activeInsight.history[0]
                 }
               />
             </div>
 
-            {/* Session high/low */}
             <div
               className="grid grid-cols-2 gap-3 mb-4 p-3"
               style={{
@@ -505,10 +419,7 @@ function PriceTicker() {
               }}
             >
               <div>
-                <div
-                  className="text-[10px] tracking-[0.2em] uppercase mb-1"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
+                <div className="text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: "var(--color-text-muted)" }}>
                   Session High
                 </div>
                 <div className="text-sm" style={{ color: "var(--color-text)" }}>
@@ -516,10 +427,7 @@ function PriceTicker() {
                 </div>
               </div>
               <div>
-                <div
-                  className="text-[10px] tracking-[0.2em] uppercase mb-1"
-                  style={{ color: "var(--color-text-muted)" }}
-                >
+                <div className="text-[10px] tracking-[0.2em] uppercase mb-1" style={{ color: "var(--color-text-muted)" }}>
                   Session Low
                 </div>
                 <div className="text-sm" style={{ color: "var(--color-text)" }}>
@@ -528,47 +436,28 @@ function PriceTicker() {
               </div>
             </div>
 
-            {/* Description */}
-            <p
-              className="text-xs leading-relaxed mb-4"
-              style={{ color: "var(--color-text-muted)" }}
-            >
+            <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--color-text-muted)" }}>
               {ASSET_INFO[activeInsight.symbol].description}
             </p>
 
-            {/* Facts */}
             <div className="space-y-2 mb-4">
               {ASSET_INFO[activeInsight.symbol].facts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="flex justify-between gap-3 text-[11px]"
-                >
-                  <span
-                    className="tracking-wide"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
+                <div key={fact.label} className="flex justify-between gap-3 text-[11px]">
+                  <span className="tracking-wide" style={{ color: "var(--color-text-muted)" }}>
                     {fact.label}
                   </span>
-                  <span
-                    className="text-right"
-                    style={{ color: "var(--color-text)" }}
-                  >
+                  <span className="text-right" style={{ color: "var(--color-text)" }}>
                     {fact.value}
                   </span>
                 </div>
               ))}
             </div>
 
-            {/* Disclaimer */}
             <div
               className="text-[10px] leading-relaxed pt-3"
-              style={{
-                color: "var(--color-text-muted)",
-                borderTop: "1px solid var(--color-border)",
-              }}
+              style={{ color: "var(--color-text-muted)", borderTop: "1px solid var(--color-border)" }}
             >
-              Spot prices shown for reference only. Refreshed every 60 seconds.
-              Not a quote or solicitation to trade.
+              Spot prices shown for reference only. Refreshed every 60 seconds. Not a quote or solicitation to trade.
             </div>
           </div>
         </div>
@@ -589,31 +478,105 @@ function PriceTicker() {
 }
 
 // =================== NAVIGATION ===================
+
+// Custom hook for hover-intent dropdown (delay before closing)
+function useDropdownHover(delay = 120) {
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const open = (path: string) => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setOpenDropdown(path);
+  };
+
+  const close = () => {
+    closeTimer.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, delay);
+  };
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
+  }, []);
+
+  return { openDropdown, open, close, cancelClose };
+}
+
 export default function Navigation() {
   const location = useLocation();
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [mobileDropdowns, setMobileDropdowns] = useState<Record<string, boolean>>(
-    {}
-  );
+  const { openDropdown, open, close, cancelClose } = useDropdownHover(150);
+  const [mobileDropdowns, setMobileDropdowns] = useState<Record<string, boolean>>({});
 
-  const handleDropdownClick = (path: string) => {
+  // Store a pending hash to scroll to after navigation settles
+  const pendingHash = useRef<string | null>(null);
+
+  // How tall the sticky header is — ticker (~32px) + nav (80px) + a little breathing room
+  const NAV_OFFSET = 120;
+
+  const scrollToHash = useCallback((hash: string) => {
+    const attempt = () => {
+      const el = document.getElementById(hash);
+      if (!el) return false;
+      const top = el.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top, behavior: "smooth" });
+      return true;
+    };
+
+    // Try immediately (same-page case or already-rendered page)
+    if (attempt()) return;
+
+    // Otherwise watch the DOM for the element to appear after navigation
+    const observer = new MutationObserver(() => {
+      if (attempt()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Safety timeout — disconnect after 3s regardless
+    setTimeout(() => observer.disconnect(), 3000);
+  }, []);
+
+  // After a route change, fire any pending hash scroll
+  useEffect(() => {
+    if (!pendingHash.current) return;
+    const hash = pendingHash.current;
+    pendingHash.current = null;
+    // Wait one rAF so the new page's first paint is done
+    requestAnimationFrame(() => scrollToHash(hash));
+  }, [location.pathname, scrollToHash]);
+
+  const handleDropdownClick = useCallback((path: string) => {
     const [route, hash] = path.split("#");
-    navigate(route);
-    setTimeout(() => {
-      if (hash) {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
+    const isSamePage = location.pathname === route;
+
+    if (hash) {
+      if (isSamePage) {
+        scrollToHash(hash);
       } else {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        pendingHash.current = hash;
+        navigate(route);
       }
-    }, 100);
-    setOpenDropdown(null);
+    } else {
+      navigate(route);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
     setMobileMenuOpen(false);
-  };
+  }, [location.pathname, navigate, scrollToHash]);
 
   const toggleMobileDropdown = (path: string) => {
     setMobileDropdowns((prev) => ({ ...prev, [path]: !prev[path] }));
@@ -646,8 +609,10 @@ export default function Navigation() {
                   <div
                     key={link.path}
                     className="relative"
-                    onMouseEnter={() => setOpenDropdown(link.path)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    // Open on mouse entering the wrapper
+                    onMouseEnter={() => open(link.path)}
+                    // Start close timer when leaving the wrapper (covers both trigger + dropdown)
+                    onMouseLeave={close}
                   >
                     <Link
                       to={link.path}
@@ -683,43 +648,54 @@ export default function Navigation() {
 
                     {openDropdown === link.path && (
                       <div
-                        className="absolute top-full left-0 mt-3 w-72 py-2 z-50"
+                        className="absolute top-full left-0 w-72 z-50"
+                        // Cancel close timer when mouse enters the dropdown panel
+                        onMouseEnter={cancelClose}
+                        // Restart close timer when mouse leaves the dropdown panel
+                        onMouseLeave={close}
                         style={{
-                          backgroundColor: "var(--color-bg-alt)",
-                          border: "1px solid var(--color-border)",
-                          borderRadius: "4px",
-                          boxShadow: "0 12px 40px rgba(0, 0, 0, 0.5)",
+                          // Invisible top padding bridges the gap between link and panel
+                          paddingTop: "12px",
                         }}
                       >
                         <div
-                          className="h-px mx-4 mb-2"
+                          className="py-2"
                           style={{
-                            background:
-                              "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)",
+                            backgroundColor: "var(--color-bg-alt)",
+                            border: "1px solid var(--color-border)",
+                            borderRadius: "4px",
+                            boxShadow: "0 12px 40px rgba(0, 0, 0, 0.5)",
                           }}
-                        ></div>
-                        {link.dropdown.map((item) => (
-                          <button
-                            key={item.path}
-                            onClick={() => handleDropdownClick(item.path)}
-                            className="w-full text-left px-5 py-2.5 text-sm transition-all"
-                            style={{ color: "var(--color-text-muted)" }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.color = "var(--color-accent)";
-                              e.currentTarget.style.backgroundColor =
-                                "var(--color-accent-softer)";
-                              e.currentTarget.style.paddingLeft = "24px";
+                        >
+                          <div
+                            className="h-px mx-4 mb-2"
+                            style={{
+                              background:
+                                "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)",
                             }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.color = "var(--color-text-muted)";
-                              e.currentTarget.style.backgroundColor =
-                                "transparent";
-                              e.currentTarget.style.paddingLeft = "20px";
-                            }}
-                          >
-                            {item.label}
-                          </button>
-                        ))}
+                          ></div>
+                          {link.dropdown.map((item) => (
+                            <button
+                              key={item.path}
+                              onClick={() => handleDropdownClick(item.path)}
+                              className="w-full text-left px-5 py-2.5 text-sm transition-all"
+                              style={{ color: "var(--color-text-muted)" }}
+                              onMouseEnter={(e) => {
+                                e.currentTarget.style.color = "var(--color-accent)";
+                                e.currentTarget.style.backgroundColor =
+                                  "var(--color-accent-softer)";
+                                e.currentTarget.style.paddingLeft = "24px";
+                              }}
+                              onMouseLeave={(e) => {
+                                e.currentTarget.style.color = "var(--color-text-muted)";
+                                e.currentTarget.style.backgroundColor = "transparent";
+                                e.currentTarget.style.paddingLeft = "20px";
+                              }}
+                            >
+                              {item.label}
+                            </button>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -812,16 +788,12 @@ export default function Navigation() {
                     {mobileDropdowns[link.path] && (
                       <div
                         className="pl-4 ml-2 space-y-1 mb-2"
-                        style={{
-                          borderLeft: "1px solid var(--color-accent-strong)",
-                        }}
+                        style={{ borderLeft: "1px solid var(--color-accent-strong)" }}
                       >
                         {link.dropdown.map((item) => (
                           <button
                             key={item.path}
-                            onClick={() => {
-                              handleDropdownClick(item.path);
-                            }}
+                            onClick={() => handleDropdownClick(item.path)}
                             className="block w-full text-left py-2 px-3 text-sm transition-colors"
                             style={{ color: "var(--color-text-muted)" }}
                           >

@@ -20,15 +20,6 @@ import {
 import { Link } from "react-router";
 import HeroVideo from "../components/HeroVideo";
 
-// Color palette
-// Primary Black: var(--color-bg)
-// Charcoal: var(--color-bg-alt)
-// Dark Grey: var(--color-border)
-// Gold Accent: var(--color-accent)
-// Light Gold Hover: var(--color-accent-hover)
-// White: var(--color-text)
-// Muted Text: var(--color-text-muted)
-
 export default function Streaming() {
   return (
     <div style={{ backgroundColor: "var(--color-bg)", color: "var(--color-text)" }}>
@@ -86,12 +77,12 @@ export default function Streaming() {
           >
             We deliver non-dilutive capital solutions to licensed, responsible gold miners — moving beyond restrictive debt and traditional equity models. Through strategic financing and technology partnerships, we empower gold miners to boost production, improve recovery rates, and fully realize their gold assets' potential.
           </p>
-          
         </div>
       </HeroVideo>
 
       {/* ============ STREAMING & ROYALTIES — INTRO + IMAGE ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
+      {/* id="sustainable-model" — matches /streaming#sustainable-model */}
+      <section id="sustainable-model" className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Image with frame */}
@@ -242,7 +233,8 @@ export default function Streaming() {
       </section>
 
       {/* ============ HOW IT WORKS — Process ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
+      {/* id="how-it-works" — matches /streaming#how-it-works */}
+      <section id="how-it-works" className="py-24" style={{ backgroundColor: "var(--color-bg-alt)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div
@@ -329,7 +321,8 @@ export default function Streaming() {
       </section>
 
       {/* ============ WHY PARTNER WITH US ============ */}
-      <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
+      {/* id="why-partner" — matches /streaming#why-partner */}
+      <section id="why-partner" className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div
@@ -487,8 +480,6 @@ export default function Streaming() {
           </div>
         </div>
       </section>
-
-      
 
       {/* ============ ESG / SUSTAINABLE MINING FINANCE ============ */}
       <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
