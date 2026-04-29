@@ -518,181 +518,221 @@ export default function Home() {
 
       {/* ============ SUSTAINABLE MINING + GLOBAL PRESENCE (with image) ============ */}
       <section className="py-20" style={{ backgroundColor: "var(--color-bg-alt)" }}>
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-2 gap-12 items-center">
-            {/* Left — Sustainable Mining with image */}
-            <div>
-              
-              <div
-                className="inline-block mb-4 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
-              >
-                Our Commitment
-              </div>
-              <h2
-                className="mb-4 text-3xl md:text-4xl font-light leading-tight"
-                style={{ color: "var(--color-text)" }}
-              >
-                Committed to{" "}
-                <span style={{ color: "var(--color-accent)" }}>Sustainable Mining</span>
-              </h2>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
-              <p className="mb-8 leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-                We prioritize ESG compliance, environmental responsibility, and positive community impact across all our operations and partnerships.
-              </p>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              <div className="space-y-3">
-                {[
-                  {
-                    icon: Leaf,
-                    title: "Environmental Stewardship",
-                    desc: "Supporting responsible mining practices.",
-                  },
-                  {
-                    icon: Shield,
-                    title: "Compliance & Transparency",
-                    desc: "Full AML/KYC adherence and ethical sourcing.",
-                  },
-                  {
-                    icon: Users,
-                    title: "Community Impact",
-                    desc: "Creating shared value for local stakeholders and host communities.",
-                  },
-                ].map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="flex gap-4 p-4 transition-all duration-300"
-                      style={{
-                        backgroundColor: "var(--color-bg)",
-                        border: "1px solid var(--color-border)",
-                        borderRadius: "4px",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-accent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "var(--color-border)";
-                      }}
-                    >
-                      <div
-                        className="shrink-0 w-10 h-10 flex items-center justify-center"
-                        style={{
-                          backgroundColor: "var(--color-accent-soft)",
-                          border: "1px solid var(--color-accent-strong)",
-                          borderRadius: "4px",
-                        }}
-                      >
-                        <Icon style={{ color: "var(--color-accent)" }} size={18} />
-                      </div>
-                      <div>
-                        <h4 className="mb-1 text-sm" style={{ color: "var(--color-text)" }}>
-                          {item.title}
-                        </h4>
-                        <p className="text-sm" style={{ color: "var(--color-text-muted)" }}>
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+    {/* Section header — visible on mobile, hidden on desktop (each col has its own label) */}
+    <div className="mb-10 lg:hidden">
+      <div
+        className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+        style={{ color: "var(--color-accent)" }}
+      >
+        Our Commitment
+      </div>
+      <h2
+        className="text-3xl font-light leading-tight"
+        style={{ color: "var(--color-text)" }}
+      >
+        Committed to{" "}
+        <span style={{ color: "var(--color-accent)" }}>Sustainable Mining</span>
+      </h2>
+      <div
+        className="w-12 h-px mt-4"
+        style={{ backgroundColor: "var(--color-accent)" }}
+      />
+    </div>
 
-            {/* Right — Global Presence */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+
+      {/* ── LEFT — Sustainable Mining ── */}
+      <div>
+        {/* Desktop-only label */}
+        <div className="hidden lg:block">
+          <div
+            className="inline-block mb-4 text-xs tracking-[0.3em] uppercase"
+            style={{ color: "var(--color-accent)" }}
+          >
+            Our Commitment
+          </div>
+          <h2
+            className="mb-4 text-3xl md:text-4xl font-light leading-tight"
+            style={{ color: "var(--color-text)" }}
+          >
+            Committed to{" "}
+            <span style={{ color: "var(--color-accent)" }}>Sustainable Mining</span>
+          </h2>
+          <div
+            className="w-12 h-px mb-6"
+            style={{ backgroundColor: "var(--color-accent)" }}
+          />
+        </div>
+
+        <p
+          className="mb-6 leading-relaxed text-sm sm:text-base"
+          style={{ color: "var(--color-text-muted)" }}
+        >
+          We prioritize ESG compliance, environmental responsibility, and positive community impact across all our operations and partnerships.
+        </p>
+
+        <div className="space-y-3">
+          {[
+            {
+              icon: Leaf,
+              title: "Environmental Stewardship",
+              desc: "Supporting responsible mining practices that protect ecosystems for future generations.",
+            },
+            {
+              icon: Shield,
+              title: "Compliance & Transparency",
+              desc: "Full AML/KYC adherence and ethical sourcing across every transaction.",
+            },
+            {
+              icon: Users,
+              title: "Community Impact",
+              desc: "Creating shared value for local stakeholders and host communities.",
+            },
+          ].map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={idx}
+                className="flex gap-4 p-4 transition-all duration-300"
+                style={{
+                  backgroundColor: "var(--color-bg)",
+                  border: "1px solid var(--color-border)",
+                  borderRadius: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = "var(--color-accent)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "var(--color-border)";
+                }}
+              >
+                <div
+                  className="shrink-0 w-10 h-10 flex items-center justify-center"
+                  style={{
+                    backgroundColor: "var(--color-accent-soft)",
+                    border: "1px solid var(--color-accent-strong)",
+                    borderRadius: "4px",
+                  }}
+                >
+                  <Icon style={{ color: "var(--color-accent)" }} size={18} />
+                </div>
+                <div>
+                  <h4
+                    className="mb-1 text-sm font-medium"
+                    style={{ color: "var(--color-text)" }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── RIGHT — Global Presence ── */}
+      <div
+        className="p-6 sm:p-8 lg:p-10"
+        style={{
+          backgroundColor: "var(--color-bg)",
+          border: "1px solid var(--color-border)",
+          borderRadius: "4px",
+          background: "var(--gradient-card-tinted)",
+        }}
+      >
+        <div
+          className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
+          style={{ color: "var(--color-accent)" }}
+        >
+          Where We Operate
+        </div>
+        <h3
+          className="mb-2 text-2xl md:text-3xl font-light"
+          style={{ color: "var(--color-text)" }}
+        >
+          Global Presence
+        </h3>
+        <div
+          className="w-12 h-px mb-6"
+          style={{ backgroundColor: "var(--color-accent-medium)" }}
+        />
+        <p
+          className="mb-6 text-sm leading-relaxed"
+          style={{ color: "var(--color-text-muted)" }}
+        >
+          Strategically positioned across three continents to serve miners, investors, and partners wherever they operate.
+        </p>
+
+        <div className="space-y-3">
+          {[
+            { city: "Dubai, UAE", region: "MENA Hub & Headquarters" },
+            { city: "Accra, Ghana", region: "West Africa Operations" },
+            { city: "Hong Kong", region: "Asia-Pacific Gateway" },
+          ].map((loc, idx) => (
             <div
-              className="p-10"
+              key={idx}
+              className="flex items-center gap-4 p-4 transition-all duration-300"
               style={{
-                backgroundColor: "var(--color-bg)",
+                backgroundColor: "var(--color-bg-alt)",
                 border: "1px solid var(--color-border)",
                 borderRadius: "4px",
-                background: "var(--gradient-card-tinted)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = "var(--color-accent)";
+                e.currentTarget.style.transform = "translateX(4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = "var(--color-border)";
+                e.currentTarget.style.transform = "translateX(0)";
               }}
             >
               <div
-                className="inline-block mb-3 text-xs tracking-[0.3em] uppercase"
-                style={{ color: "var(--color-accent)" }}
+                className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full"
+                style={{
+                  backgroundColor: "var(--color-accent-soft)",
+                  border: "1px solid var(--color-accent-strong)",
+                }}
               >
-                Where We Operate
+                <MapPin style={{ color: "var(--color-accent)" }} size={16} />
               </div>
-              <h3
-                className="mb-2 text-2xl md:text-3xl font-light"
-                style={{ color: "var(--color-text)" }}
-              >
-                Global Presence
-              </h3>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent-medium)" }}
-              ></div>
-              <p className="mb-8 text-sm leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
-              </p>
-
-              <div className="space-y-3">
-                {[
-                  { city: "Dubai, UAE", region: "MENA Hub & Headquarters" },
-                  { city: "Accra, Ghana", region: "West Africa Operations" },
-                  { city: "Hong Kong", region: "Asia-Pacific Gateway" },
-                ].map((loc, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-4 p-4 transition-all duration-300"
-                    style={{
-                      backgroundColor: "var(--color-bg-alt)",
-                      border: "1px solid var(--color-border)",
-                      borderRadius: "4px",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-accent)";
-                      e.currentTarget.style.transform = "translateX(4px)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--color-border)";
-                      e.currentTarget.style.transform = "translateX(0)";
-                    }}
-                  >
-                    <div
-                      className="shrink-0 w-10 h-10 flex items-center justify-center rounded-full"
-                      style={{
-                        backgroundColor: "var(--color-accent-soft)",
-                        border: "1px solid var(--color-accent-strong)",
-                      }}
-                    >
-                      <MapPin style={{ color: "var(--color-accent)" }} size={16} />
-                    </div>
-                    <div>
-                      <div
-                        className="text-sm font-medium tracking-wide"
-                        style={{ color: "var(--color-text)" }}
-                      >
-                        {loc.city}
-                      </div>
-                      <div className="text-xs mt-0.5" style={{ color: "var(--color-text-muted)" }}>
-                        {loc.region}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <div>
+                <div
+                  className="text-sm font-medium tracking-wide"
+                  style={{ color: "var(--color-text)" }}
+                >
+                  {loc.city}
+                </div>
+                <div
+                  className="text-xs mt-0.5"
+                  style={{ color: "var(--color-text-muted)" }}
+                >
+                  {loc.region}
+                </div>
               </div>
-
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 mt-6 text-xs tracking-[0.2em] uppercase transition-all"
-                style={{ color: "var(--color-accent)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent-hover)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
-              >
-                View All Locations
-                <ArrowRight size={14} />
-              </Link>
             </div>
-          </div>
+          ))}
         </div>
-      </section>
+
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 mt-8 text-xs tracking-[0.2em] uppercase transition-all"
+          style={{ color: "var(--color-accent)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent-hover)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+        >
+          View All Locations
+          <ArrowRight size={14} />
+        </Link>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* ============ STATS BAND ============ */}
       
