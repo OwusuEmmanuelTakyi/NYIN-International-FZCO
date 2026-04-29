@@ -51,7 +51,7 @@ const leaders: Leader[] = [
     image: leader1,
     bio: [
       "Joe is the Managing Director of NYIN Minerals Ltd and CEO of NYIN International FZCO, bringing over 15 years of global financial markets experience to Africa's gold sector.",
-      "Previously, he managed a multi-million-dollar risk book in Asian corporate credit at Vantage Capital Markets in Hong Kong, specializing in credit markets, equity derivatives, and cash equities.",
+      "Previously, he managed trade flows worth billions of dollars in equity derivatives and credit at leading inter-dealer brokers BGC and GFI.",
       "At NYIN, Joe leads bullion trading, streaming and royalties, and mining advisory services. His firsthand work with African miners drives his commitment to non-dilutive financing, market access, and exit advisory solutions that empower miners and attract institutional capital.",
       "He holds a Bachelor's in International Finance and Capital Markets from the University of Brighton and a Master's in Quantitative Finance from Westminster Business School."
     ],
