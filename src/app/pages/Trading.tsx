@@ -165,10 +165,7 @@ export default function Trading() {
               >
                 Upstream Trading
               </h2>
-              <div
-                className="w-12 h-px mb-6"
-                style={{ backgroundColor: "var(--color-accent)" }}
-              ></div>
+              
               <p className="mb-5 leading-relaxed text-justify" style={{ color: "var(--color-text-muted)" }}>
                 Our unique upstream approach sets us apart. With local teams positioned near major production belts, we maintain direct relationships with mines, aggregators and processing facilities. This allows NYIN to offer{" "}
                 <span style={{ color: "var(--color-accent)" }}>exclusive pricing advantages</span> to our customers.

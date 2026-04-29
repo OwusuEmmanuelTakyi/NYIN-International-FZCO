@@ -140,8 +140,8 @@ export default function About() {
       <HeroVideo
         sources={[
           "https://cdn.pixabay.com/video/2023/10/30/187938-879478968_large.mp4",
-          "https://cdn.pixabay.com/video/2020/08/30/48569-454825064_large.mp4",
-          "https://cdn.pixabay.com/video/2021/06/17/78480-565157086_large.mp4",
+          "https://v1.pinimg.com/videos/mc/720p/a6/e0/dd/a6e0dd2db33da54f6db6a2d34534a3a4.mp4",
+          "https://v1.pinimg.com/videos/mc/720p/a6/e0/dd/a6e0dd2db33da54f6db6a2d34534a3a4.mp4",
         ]}
         poster="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1920&q=80"
       >
