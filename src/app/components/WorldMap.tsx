@@ -15,7 +15,6 @@ type OfficeDetails = {
   id: string;
   name: string;
   region: string;
-  /** SVG-coordinate position as percentage strings (matches viewBox 1000x500). */
   left: string;
   top: string;
   address: string[];
@@ -37,7 +36,7 @@ const OFFICES: OfficeDetails[] = [
       "Silicon Oasis",
       "Dubai, United Arab Emirates",
     ],
-    phone: "+971 55 356 7545 ",
+    phone: "+971 55 356 7545",
     email: "Jd@nyinintl.com",
     timezone: "GST (UTC+4)",
     hours: "Sun – Thu · 09:00 – 18:00",
@@ -48,8 +47,8 @@ const OFFICES: OfficeDetails[] = [
     region: "West Africa Operations",
     left: "49.9%",
     top: "46.9%",
-    address: [" No. 3 Sergeant Adjetey Street, Nouakchott Road , East Legon- Accra ", "Ghana"],
-    phone: " +233 54 447 9798 ",
+    address: ["No. 3 Sergeant Adjetey Street, Nouakchott Road", "East Legon, Accra", "Ghana"],
+    phone: "+233 54 447 9798",
     email: "accra@nyininternational.com",
     timezone: "GMT (UTC+0)",
     hours: "Mon – Fri · 08:30 – 17:30",
@@ -60,7 +59,7 @@ const OFFICES: OfficeDetails[] = [
     region: "Asia-Pacific Gateway",
     left: "81.7%",
     top: "37.6%",
-    address: ["21/F City Plaza Three,14 Taikoo Wan Road, Taikoo,", "Hong Kong"],
+    address: ["21/F City Plaza Three", "14 Taikoo Wan Road, Taikoo", "Hong Kong"],
     phone: "+852 95 401 093",
     email: "hongkong@nyininternational.com",
     timezone: "HKT (UTC+8)",
@@ -69,23 +68,16 @@ const OFFICES: OfficeDetails[] = [
 ];
 
 type Props = {
-  /** When true, removes the surrounding section padding/headline. Useful when embedding inside another section. */
   embedded?: boolean;
 };
 
-/**
- * Big interactive world map.
- * - Clicking a pulsing gold pin reveals that office's full details in an overlay panel.
- * - Click the X (or pin again) to close.
- * - Always-visible city labels under each pin.
- */
 export default function WorldMap({ embedded = false }: Props) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const active = OFFICES.find((o) => o.id === activeId);
 
   const Map = (
     <div className="relative w-full">
-      {/* Map container — 2:1 aspect ratio (1000 x 500 viewBox) */}
+      {/* Map container — 2:1 aspect ratio */}
       <div className="relative w-full" style={{ paddingBottom: "50%" }}>
         <svg
           className="absolute inset-0 w-full h-full"
@@ -120,17 +112,14 @@ export default function WorldMap({ embedded = false }: Props) {
 
           {/* Equator */}
           <line
-            x1="0"
-            y1="250"
-            x2="1000"
-            y2="250"
+            x1="0" y1="250" x2="1000" y2="250"
             stroke="var(--color-accent)"
             strokeOpacity="0.08"
             strokeWidth="0.5"
             strokeDasharray="2 4"
           />
 
-          {/* Real world map (Natural Earth, 177 countries) */}
+          {/* World map paths */}
           <path
             d={WORLD_PATHS}
             fill="url(#wmLand)"
@@ -140,33 +129,11 @@ export default function WorldMap({ embedded = false }: Props) {
             strokeLinejoin="round"
           />
 
-          {/* Connection arcs between offices */}
+          {/* Connection arcs */}
           <g opacity="0.55">
-            {/* Dubai → Accra */}
-            <path
-              d="M 654 180 Q 575 200 499 234"
-              stroke="var(--color-accent)"
-              strokeWidth="1"
-              strokeDasharray="3 4"
-              fill="none"
-            />
-            {/* Dubai → Hong Kong */}
-            <path
-              d="M 654 180 Q 735 155 817 188"
-              stroke="var(--color-accent)"
-              strokeWidth="1"
-              strokeDasharray="3 4"
-              fill="none"
-            />
-            {/* Accra → Hong Kong */}
-            <path
-              d="M 499 234 Q 658 320 817 188"
-              stroke="var(--color-accent)"
-              strokeWidth="1"
-              strokeDasharray="3 4"
-              fill="none"
-              opacity="0.5"
-            />
+            <path d="M 654 180 Q 575 200 499 234" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="3 4" fill="none" />
+            <path d="M 654 180 Q 735 155 817 188" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="3 4" fill="none" />
+            <path d="M 499 234 Q 658 320 817 188" stroke="var(--color-accent)" strokeWidth="1" strokeDasharray="3 4" fill="none" opacity="0.5" />
           </g>
         </svg>
 
@@ -223,18 +190,20 @@ export default function WorldMap({ embedded = false }: Props) {
                 />
               </div>
 
-              {/* Always-visible city label */}
+              {/*
+                City label — only shown on md+ screens (≥768px).
+                On mobile screens the pins are too close together and labels overlap,
+                so we hide them and show a tap-to-see legend below the map instead.
+              */}
               <div
-                className="absolute left-1/2 -translate-x-1/2 mt-3 whitespace-nowrap text-center pointer-events-none"
-                style={{ top: "100%" }}
+                className="absolute left-1/2 -translate-x-1/2 pointer-events-none hidden md:block"
+                style={{ top: "calc(100% + 10px)" }}
               >
                 <div
-                  className="text-xs md:text-sm tracking-[0.15em] uppercase font-medium transition-colors"
+                  className="text-[11px] tracking-[0.12em] uppercase font-medium whitespace-nowrap transition-colors"
                   style={{
-                    color: isActive
-                      ? "var(--color-accent-hover)"
-                      : "var(--color-accent)",
-                    textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+                    color: isActive ? "var(--color-accent-hover)" : "var(--color-accent)",
+                    textShadow: "0 2px 12px rgba(0,0,0,0.8)",
                   }}
                 >
                   {office.name}
@@ -244,15 +213,15 @@ export default function WorldMap({ embedded = false }: Props) {
           );
         })}
 
-        {/* Active office detail panel — overlays on top of the map */}
+        {/* Detail panel overlay — sits inside the map */}
         {active && (
           <div
             className="absolute z-30"
             style={{
-              top: "16px",
-              right: "16px",
-              maxWidth: "calc(100% - 32px)",
-              width: "320px",
+              top: "12px",
+              right: "12px",
+              maxWidth: "calc(100% - 24px)",
+              width: "300px",
               animation: "wmFadeIn 0.25s ease-out",
             }}
           >
@@ -266,18 +235,17 @@ export default function WorldMap({ embedded = false }: Props) {
                 backdropFilter: "blur(12px)",
               }}
             >
-              {/* Top gold accent line */}
+              {/* Gold accent line */}
               <div
                 className="h-px"
                 style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)",
+                  background: "linear-gradient(90deg, transparent 0%, var(--color-accent) 50%, transparent 100%)",
                 }}
               />
 
-              <div className="p-5">
+              <div className="p-4 sm:p-5">
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-3">
                   <div>
                     <div
                       className="text-[10px] tracking-[0.3em] uppercase mb-1"
@@ -286,7 +254,7 @@ export default function WorldMap({ embedded = false }: Props) {
                       {active.region}
                     </div>
                     <h3
-                      className="text-xl font-light leading-tight"
+                      className="text-lg sm:text-xl font-light leading-tight"
                       style={{ color: "var(--color-text)" }}
                     >
                       {active.name}
@@ -294,44 +262,32 @@ export default function WorldMap({ embedded = false }: Props) {
                   </div>
                   <button
                     onClick={() => setActiveId(null)}
-                    className="p-1 transition-colors"
+                    className="p-1 transition-colors shrink-0 ml-2"
                     style={{ color: "var(--color-text-muted)" }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--color-accent)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--color-text-muted)")
-                    }
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-muted)")}
                     aria-label="Close details"
                   >
                     <X size={14} />
                   </button>
                 </div>
 
-                <div
-                  className="w-10 h-px mb-4"
-                  style={{ backgroundColor: "var(--color-accent-medium)" }}
-                />
+                <div className="w-10 h-px mb-3" style={{ backgroundColor: "var(--color-accent-medium)" }} />
 
                 {/* Address */}
                 <div className="flex gap-3 mb-3">
                   <div
-                    className="shrink-0 w-8 h-8 flex items-center justify-center"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center"
                     style={{
                       backgroundColor: "var(--color-accent-soft)",
                       border: "1px solid var(--color-accent-strong)",
                       borderRadius: "4px",
                     }}
                   >
-                    <MapPin size={12} style={{ color: "var(--color-accent)" }} />
+                    <MapPin size={11} style={{ color: "var(--color-accent)" }} />
                   </div>
-                  <div
-                    className="text-xs leading-relaxed"
-                    style={{ color: "var(--color-text-muted)" }}
-                  >
-                    {active.address.map((line, i) => (
-                      <div key={i}>{line}</div>
-                    ))}
+                  <div className="text-xs leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+                    {active.address.map((line, i) => <div key={i}>{line}</div>)}
                   </div>
                 </div>
 
@@ -340,22 +296,18 @@ export default function WorldMap({ embedded = false }: Props) {
                   href={`tel:${active.phone.replace(/\s+/g, "")}`}
                   className="flex items-center gap-3 mb-3 text-xs transition-colors"
                   style={{ color: "var(--color-text-muted)" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--color-accent)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--color-text-muted)")
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-muted)")}
                 >
                   <div
-                    className="shrink-0 w-8 h-8 flex items-center justify-center"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center"
                     style={{
                       backgroundColor: "var(--color-accent-soft)",
                       border: "1px solid var(--color-accent-strong)",
                       borderRadius: "4px",
                     }}
                   >
-                    <Phone size={12} style={{ color: "var(--color-accent)" }} />
+                    <Phone size={11} style={{ color: "var(--color-accent)" }} />
                   </div>
                   {active.phone}
                 </a>
@@ -363,24 +315,20 @@ export default function WorldMap({ embedded = false }: Props) {
                 {/* Email */}
                 <a
                   href={`mailto:${active.email}`}
-                  className="flex items-center gap-3 mb-4 text-xs transition-colors"
+                  className="flex items-center gap-3 mb-3 text-xs transition-colors"
                   style={{ color: "var(--color-text-muted)" }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.color = "var(--color-accent)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.color = "var(--color-text-muted)")
-                  }
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-accent)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text-muted)")}
                 >
                   <div
-                    className="shrink-0 w-8 h-8 flex items-center justify-center"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center"
                     style={{
                       backgroundColor: "var(--color-accent-soft)",
                       border: "1px solid var(--color-accent-strong)",
                       borderRadius: "4px",
                     }}
                   >
-                    <Mail size={12} style={{ color: "var(--color-accent)" }} />
+                    <Mail size={11} style={{ color: "var(--color-accent)" }} />
                   </div>
                   <span className="truncate">{active.email}</span>
                 </a>
@@ -391,25 +339,18 @@ export default function WorldMap({ embedded = false }: Props) {
                   style={{ borderTop: "1px solid var(--color-border)" }}
                 >
                   <div
-                    className="shrink-0 w-8 h-8 flex items-center justify-center"
+                    className="shrink-0 w-7 h-7 flex items-center justify-center"
                     style={{
                       backgroundColor: "var(--color-accent-soft)",
                       border: "1px solid var(--color-accent-strong)",
                       borderRadius: "4px",
                     }}
                   >
-                    <Clock size={12} style={{ color: "var(--color-accent)" }} />
+                    <Clock size={11} style={{ color: "var(--color-accent)" }} />
                   </div>
                   <div className="text-xs leading-relaxed">
-                    <div style={{ color: "var(--color-text)" }}>
-                      {active.hours}
-                    </div>
-                    <div
-                      className="mt-0.5"
-                      style={{ color: "var(--color-text-muted)" }}
-                    >
-                      {active.timezone}
-                    </div>
+                    <div style={{ color: "var(--color-text)" }}>{active.hours}</div>
+                    <div className="mt-0.5" style={{ color: "var(--color-text-muted)" }}>{active.timezone}</div>
                   </div>
                 </div>
               </div>
@@ -418,10 +359,51 @@ export default function WorldMap({ embedded = false }: Props) {
         )}
       </div>
 
-      {/* Helper text below map — disappears when a pin is active */}
+      {/*
+        Mobile legend — visible only on small screens (< md).
+        Shows all three offices as tappable chips so users know what the pins are
+        without overlapping labels on the map.
+      */}
+      <div className="mt-4 md:hidden">
+        <div className="flex flex-wrap justify-center gap-2">
+          {OFFICES.map((office) => {
+            const isActive = activeId === office.id;
+            return (
+              <button
+                key={office.id}
+                type="button"
+                onClick={() => setActiveId(isActive ? null : office.id)}
+                className="flex items-center gap-2 px-3 py-2 text-xs tracking-[0.12em] uppercase transition-all duration-200"
+                style={{
+                  backgroundColor: isActive ? "var(--color-accent-soft)" : "var(--color-bg-alt)",
+                  border: `1px solid ${isActive ? "var(--color-accent)" : "var(--color-border)"}`,
+                  borderRadius: "4px",
+                  color: isActive ? "var(--color-accent)" : "var(--color-text-muted)",
+                }}
+              >
+                <span
+                  className="w-2 h-2 rounded-full shrink-0"
+                  style={{ backgroundColor: "var(--color-accent)" }}
+                />
+                {office.name}
+              </button>
+            );
+          })}
+        </div>
+        {!active && (
+          <p
+            className="text-center mt-3 text-[11px] tracking-[0.15em]"
+            style={{ color: "var(--color-text-muted)" }}
+          >
+            Tap a location to view office details
+          </p>
+        )}
+      </div>
+
+      {/* Desktop helper text */}
       {!active && (
         <div
-          className="text-center mt-3 text-xs tracking-[0.2em] "
+          className="hidden md:block text-center mt-4 text-xs tracking-[0.2em]"
           style={{ color: "var(--color-text-muted)" }}
         >
           Click a pin to view office details
@@ -446,10 +428,8 @@ export default function WorldMap({ embedded = false }: Props) {
     </div>
   );
 
-  // When embedded, we just return the map without the wrapping section/header
   if (embedded) return Map;
 
-  // Standalone usage (e.g. on Home page) shows a section header above the map
   return (
     <section className="py-24" style={{ backgroundColor: "var(--color-bg)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -473,12 +453,6 @@ export default function WorldMap({ embedded = false }: Props) {
             className="w-16 h-px mx-auto mb-6"
             style={{ backgroundColor: "var(--color-accent)" }}
           />
-          <p
-            className="leading-relaxed"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            
-          </p>
         </div>
         {Map}
       </div>
