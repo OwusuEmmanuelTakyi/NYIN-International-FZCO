@@ -116,9 +116,9 @@ const leaders: Leader[] = [
     icon: Globe,
     image: leader5,
     bio: [
-      "Kuuku Amos is the Chief Strategy Officer driving the international expansion and operational modernization of NYIN Minerals. Operating at the nexus of economics and global commodities, Kuuku brings a sophisticated financial perspective to the gold and precious metals supply chain.",
+      "Kuuku Amos is the Chief Strategy Officer driving the international expansion and operational modernization of NYIN International FZCO. Operating at the nexus of economics and global commodities, Kuuku brings a sophisticated financial perspective to the gold and precious metals supply chain.",
       "From structuring complex trade finance solutions to optimizing cross-border logistics, he specializes in turning market volatility into bankable growth. His expertise spans regulated market navigation, capital efficiency, and superior market positioning — translating macroeconomic insight into actionable strategy across NYIN's business lines.",
-      "With an academic pedigree in economics and a professional background in international business and banking, Kuuku is an expert at delivering transparency and capital efficiency across complex, multi-jurisdictional transactions.",
+      "With an academic pedigree in economics and a professional background in international business and banking, Kuuku is an expert at navigating regulated landscapes to deliver transparency, capital efficiency and superior market positioning.",
     ],
     education: [],
     highlights: [],
