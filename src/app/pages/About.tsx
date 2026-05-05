@@ -38,7 +38,7 @@ const leaders = [
     name: "Joseph Arthur Dick",
     role: "Managing Director & CEO",
     summary:
-      "Over 15 years in global financial markets, with prior experience managing a multi-million dollar Asian corporate credit risk book at Vantage Capital Markets in Hong Kong.",
+      "Over 15 years in global financial markets, with prior experience managing a multi-million dollar Asian corporate credit risk book at GFI Capital Markets in Hong Kong.",
     image: leader1,
   },
   {
