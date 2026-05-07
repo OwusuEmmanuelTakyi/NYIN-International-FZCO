@@ -2,6 +2,7 @@ import { RouterProvider } from "react-router";
 import { router } from "./routes";
 import { ThemeProvider } from "../app/components/ThemeProvider";
 import ScrollToTop from "../app/components/ScrollToTop";  // ← add this
+import { Analytics } from "@vercel/analytics/next"
 //import ScrollToTopOnRouteChange from "./ScrollToTopOnRouteChange";  // ← ADD THIS
 
 
@@ -11,7 +12,7 @@ export default function App() {
 
       <RouterProvider router={router} />
       <ScrollToTop />   {/* ← add this, outside the router so it floats above everything */}
-      
+      <Analytics />
     </ThemeProvider>
   );
 }
