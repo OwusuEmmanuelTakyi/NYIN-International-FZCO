@@ -1,17 +1,18 @@
 import { RouterProvider } from "react-router";
 import { router } from "./routes";
 import { ThemeProvider } from "../app/components/ThemeProvider";
-import ScrollToTop from "../app/components/ScrollToTop";  // ← add this
-import { Analytics } from "@vercel/analytics/next"
-//import ScrollToTopOnRouteChange from "./ScrollToTopOnRouteChange";  // ← ADD THIS
-
+import ScrollToTop from "../app/components/ScrollToTop";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
   return (
     <ThemeProvider>
-
       <RouterProvider router={router} />
-      <ScrollToTop />   {/* ← add this, outside the router so it floats above everything */}
+
+      {/* Floating scroll button */}
+      <ScrollToTop />
+
+      {/* Vercel Analytics for Vite/React */}
       <Analytics />
     </ThemeProvider>
   );
